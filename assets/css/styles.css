@@ -507,7 +507,16 @@ h3 {
 }
 
 .filter-hero__content {
-  width: min(620px, 100%);
+  width: min(760px, 100%);
+}
+
+.filter-hero__content h1 {
+  font-size: clamp(28px, 3vw, 42px);
+  white-space: nowrap;
+}
+
+.filter-hero__content p {
+  max-width: 640px;
 }
 
 .filter-kicker {
@@ -707,7 +716,7 @@ h3 {
   display: grid;
   grid-auto-flow: dense;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(10px, 1.8vw, 20px);
+  gap: 0;
 }
 
 .work-photo {
@@ -736,6 +745,29 @@ h3 {
   inset: 0;
   content: "";
   background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.18));
+}
+
+.photo-number {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 30px;
+  padding: 5px 9px;
+  color: rgba(255, 253, 247, 0.92);
+  background: rgba(11, 11, 10, 0.38);
+  border: 1px solid rgba(255, 253, 247, 0.62);
+  border-radius: 4px;
+  font-family: var(--filter-latin);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
 }
 
 .work-photo span {
@@ -769,6 +801,104 @@ h3 {
   border-top-color: rgba(255, 253, 247, 0.14);
 }
 
+.photo-board-page {
+  --filter-bg: #0b0b0a;
+  --filter-ink: #fffdf7;
+  --filter-subtle: rgba(255, 253, 247, 0.68);
+  --filter-line: rgba(255, 253, 247, 0.18);
+  background: var(--filter-bg);
+  color: var(--filter-ink);
+  font-family: "Jin Xuan 3 Sugar", "Noto Serif TC", "PingFang TC", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.photo-board-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  padding: clamp(42px, 7vw, 84px) clamp(18px, 4vw, 56px) 26px;
+  border-bottom: 1px solid var(--filter-line);
+}
+
+.photo-board-header h1 {
+  max-width: none;
+  margin-bottom: 10px;
+  font-size: clamp(30px, 4.8vw, 64px);
+  font-weight: 300;
+}
+
+.photo-board-header p {
+  max-width: 760px;
+  margin-bottom: 0;
+  color: var(--filter-subtle);
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.photo-board-link {
+  flex: 0 0 auto;
+  color: var(--filter-ink);
+  font-size: 13px;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+
+.photo-board-section {
+  padding: clamp(34px, 5vw, 64px) clamp(18px, 4vw, 56px);
+  border-bottom: 1px solid var(--filter-line);
+}
+
+.photo-board-section h2 {
+  margin-bottom: 22px;
+  font-size: clamp(22px, 3vw, 34px);
+  font-weight: 300;
+}
+
+.photo-board-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0;
+}
+
+.photo-board-item {
+  position: relative;
+  display: block;
+  min-height: 180px;
+  overflow: hidden;
+  color: var(--filter-ink);
+  background: #151513;
+  text-decoration: none;
+}
+
+.photo-board-item--wide {
+  grid-column: span 2;
+}
+
+.photo-board-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-board-item::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.42));
+}
+
+.photo-board-caption {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  left: 12px;
+  z-index: 1;
+  color: rgba(255, 253, 247, 0.78);
+  font-size: 12px;
+  line-height: 1.45;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.55);
+}
+
 @media (max-width: 900px) {
   .grid,
   .service-list {
@@ -798,6 +928,15 @@ h3 {
 
   .product-tile {
     min-height: 84svh;
+  }
+
+  .photo-board-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .photo-board-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -854,6 +993,10 @@ h3 {
     font-size: clamp(24px, 8vw, 36px);
   }
 
+  .filter-hero__content h1 {
+    white-space: normal;
+  }
+
   .filter-page .photo-panel__content p {
     font-size: 13px;
   }
@@ -887,6 +1030,16 @@ h3 {
   .work-photo--wide {
     grid-column: auto;
     min-height: 70svh;
+  }
+
+  .photo-board-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .photo-board-item,
+  .photo-board-item--wide {
+    grid-column: auto;
+    min-height: 170px;
   }
 
   .photo-credit {
