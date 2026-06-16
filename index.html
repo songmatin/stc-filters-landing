@@ -55,18 +55,16 @@
     </header>
 
     <main>
-      <section class="filter-hero photo-panel" aria-labelledby="filter-title">
-        <a class="photo-credit" href="https://www.flickr.com/photos/songmatin/55302584686/" rel="noopener" target="_blank">
-          新湊漁港 射水市｜富山 Toyama
-        </a>
-        <img
-          alt="新湊漁港 射水市｜富山 Toyama"
-          class="photo-panel__image"
-          fetchpriority="high"
-          height="683"
-          src="https://live.staticflickr.com/65535/55302584686_5efcb80398_b.jpg"
-          width="1024"
-        >
+      <section class="filter-hero filter-hero--video photo-panel" aria-labelledby="filter-title">
+        <div class="filter-video-frame filter-video-frame--hero" aria-label="STC 濾鏡拍攝影片">
+          <iframe
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            loading="lazy"
+            src="https://www.youtube.com/embed/e4DEZ2uZVGM?autoplay=1&mute=1&loop=1&playlist=e4DEZ2uZVGM&playsinline=1&rel=0&controls=0"
+            title="STC 濾鏡拍攝現場影片"
+          ></iframe>
+        </div>
         <div class="photo-panel__shade"></div>
         <div class="photo-panel__content filter-hero__content">
           <p class="filter-kicker">STC Filters Selected by Ricardo</p>
@@ -235,16 +233,18 @@
         </div>
       </section>
 
-      <section class="filter-video-section" aria-label="濾鏡拍攝影片">
-        <div class="filter-video-frame" aria-label="16:9 影片模組">
-          <iframe
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-            loading="lazy"
-            src="https://www.youtube.com/embed/e4DEZ2uZVGM?autoplay=1&mute=1&loop=1&playlist=e4DEZ2uZVGM&playsinline=1&rel=0"
-            title="STC 濾鏡拍攝現場影片"
-          ></iframe>
-        </div>
+      <section class="photo-panel filter-feature-photo" aria-label="濾鏡作品照片">
+        <a class="photo-credit" href="https://www.flickr.com/photos/songmatin/55302584686/" rel="noopener" target="_blank">
+          新湊漁港 射水市｜富山 Toyama
+        </a>
+        <img
+          alt="新湊漁港 射水市｜富山 Toyama"
+          class="photo-panel__image"
+          height="683"
+          loading="lazy"
+          src="https://live.staticflickr.com/65535/55302584686_5efcb80398_b.jpg"
+          width="1024"
+        >
       </section>
 
       <section class="photo-panel closing-panel" aria-labelledby="closing-title">

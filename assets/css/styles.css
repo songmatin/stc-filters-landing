@@ -481,6 +481,18 @@ h3 {
   object-position: center;
 }
 
+.filter-hero--video .filter-video-frame {
+  z-index: 0;
+}
+
+.filter-hero--video .photo-panel__shade {
+  z-index: 1;
+}
+
+.filter-hero--video .photo-panel__content {
+  z-index: 2;
+}
+
 .photo-panel__shade {
   position: absolute;
   inset: 0;
@@ -689,14 +701,6 @@ h3 {
   line-height: 1.85;
 }
 
-.filter-video-section {
-  position: relative;
-  min-height: 100svh;
-  overflow: hidden;
-  padding: 0;
-  background: #0b0b0a;
-}
-
 .filter-video-frame {
   position: absolute;
   inset: 0;
@@ -724,6 +728,10 @@ h3 {
   height: max(56.25vw, 100svh);
   border: 0;
   transform: translate(-50%, -50%);
+}
+
+.filter-video-frame--hero iframe {
+  pointer-events: none;
 }
 
 .filter-gallery-section {
