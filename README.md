@@ -1,6 +1,6 @@
-# STC 濾鏡頁
+# STC 濾鏡作品頁
 
-這是里卡豆與 STC 合作使用的一頁式濾鏡頁，適合直接部署到 GitHub Pages。
+這是里卡豆與 STC 合作使用的一頁式濾鏡作品頁，適合直接部署到 GitHub Pages。
 
 ## 部署方式
 
@@ -14,7 +14,7 @@
 
 | 檔案 | 用途 |
 | --- | --- |
-| `index.html` | STC 濾鏡一頁式頁面。 |
+| `index.html` | STC 濾鏡一頁式作品頁。 |
 | `assets/css/styles.css` | 網站樣式。 |
 | `assets/js/main.js` | 頁尾年份更新。 |
 | `robots.txt` | 搜尋引擎爬取設定。 |
