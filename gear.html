@@ -342,6 +342,28 @@ h3 {
   border-color: var(--accent-dark);
 }
 
+.gear-list-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 26px;
+}
+
+.load-more-button {
+  min-height: 42px;
+  padding: 9px 18px;
+  color: #fffdf7;
+  background: var(--accent-dark);
+  border: 1px solid var(--accent-dark);
+  border-radius: 6px;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.load-more-button.is-hidden {
+  display: none;
+}
+
 .gear-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1103,6 +1125,24 @@ h3 {
     padding: 18px;
   }
 
+  .gear-filters {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    width: calc(100% + 36px);
+    margin-inline: -18px;
+    padding: 0 18px 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .gear-filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-button {
+    flex: 0 0 auto;
+  }
+
   .gear-card__figure {
     min-height: 220px;
     margin-bottom: 18px;
@@ -1429,6 +1469,10 @@ if (footer) {
 const gearGrid = document.querySelector("#gear-grid");
 const gearSummary = document.querySelector("#gear-summary");
 const gearItems = window.kardoGearItems || [];
+const mobileListQuery = window.matchMedia("(max-width: 640px)");
+const mobilePageSize = 8;
+let activeGearFilter = "all";
+let mobileVisibleLimit = mobilePageSize;
 
 const itemValue = (item) => {
   if (typeof item.totalValue === "number") {
@@ -1510,6 +1554,15 @@ if (gearGrid && gearItems.length > 0) {
     gearSummary.textContent = `目前整理 ${gearItems.length} 項設備，分為 ${categoryCount} 個公開分類；設備總值 ${formatCurrency(totalValue)}。`;
   }
 }
+
+const gearListControls = document.createElement("div");
+gearListControls.className = "gear-list-controls";
+const gearLoadMoreButton = document.createElement("button");
+gearLoadMoreButton.className = "load-more-button is-hidden";
+gearLoadMoreButton.type = "button";
+gearLoadMoreButton.textContent = "顯示更多";
+gearListControls.append(gearLoadMoreButton);
+gearGrid?.after(gearListControls);
 
 const statGrid = document.querySelector("#stat-grid");
 const statChart = document.querySelector("#stat-chart");
@@ -1659,18 +1712,34 @@ if (statGrid && gearItems.length > 0) {
   }
 }
 
-const filterButtons = document.querySelectorAll("[data-filter]");
+const filterButtons = document.querySelectorAll(".filter-button[data-filter]");
 
-const applyFilter = (activeFilter, shouldScroll = false) => {
+const applyFilter = (activeFilter, shouldScroll = false, resetMobileLimit = true) => {
+  activeGearFilter = activeFilter;
+  if (resetMobileLimit) {
+    mobileVisibleLimit = mobilePageSize;
+  }
+
   const currentCards = document.querySelectorAll(".gear-card[data-category]");
   const activeButton = document.querySelector(`.filter-button[data-filter="${activeFilter}"]`);
+  const isMobileList = mobileListQuery.matches;
+  let matchedCount = 0;
+  let shownCount = 0;
 
   filterButtons.forEach((item) => {
     item.classList.toggle("is-active", item.dataset.filter === activeFilter);
   });
 
   currentCards.forEach((card) => {
-    const shouldShow = activeFilter === "all" || card.dataset.category === activeFilter;
+    const matchesFilter = activeFilter === "all" || card.dataset.category === activeFilter;
+    if (matchesFilter) {
+      matchedCount += 1;
+    }
+    const withinMobileLimit = !isMobileList || matchedCount <= mobileVisibleLimit;
+    const shouldShow = matchesFilter && withinMobileLimit;
+    if (shouldShow) {
+      shownCount += 1;
+    }
     card.classList.toggle("is-hidden", !shouldShow);
   });
 
@@ -1680,9 +1749,22 @@ const applyFilter = (activeFilter, shouldScroll = false) => {
       : gearItems.filter((item) => item.category === activeFilter);
     const visibleValue = visibleItems.reduce((sum, item) => sum + itemValue(item), 0);
     const label = activeButton ? activeButton.textContent.trim() : "此分類";
-    gearSummary.textContent = activeFilter === "all"
+    const baseSummary = activeFilter === "all"
       ? `目前整理 ${gearItems.length} 項設備，分為 ${new Set(gearItems.map((item) => item.category)).size} 個公開分類；設備總值 ${formatCurrency(visibleValue)}。`
       : `${label} 分類目前有 ${visibleItems.length} 項設備，分類總值 ${formatCurrency(visibleValue)}。`;
+    const mobileSummary = isMobileList && matchedCount > shownCount
+      ? `手機版先顯示 ${shownCount} / ${matchedCount} 項，可逐段展開。`
+      : "";
+    gearSummary.textContent = [baseSummary, mobileSummary].filter(Boolean).join(" ");
+  }
+
+  if (gearLoadMoreButton) {
+    const remaining = Math.max(0, matchedCount - shownCount);
+    const shouldShowMore = isMobileList && remaining > 0;
+    gearLoadMoreButton.classList.toggle("is-hidden", !shouldShowMore);
+    gearLoadMoreButton.textContent = shouldShowMore
+      ? `顯示更多（還有 ${remaining} 項）`
+      : "顯示更多";
   }
 
   if (shouldScroll) {
@@ -1695,6 +1777,17 @@ filterButtons.forEach((button) => {
     applyFilter(button.dataset.filter);
   });
 });
+
+gearLoadMoreButton?.addEventListener("click", () => {
+  mobileVisibleLimit += mobilePageSize;
+  applyFilter(activeGearFilter, false, false);
+});
+
+mobileListQuery.addEventListener("change", () => {
+  applyFilter(activeGearFilter, false, false);
+});
+
+applyFilter(activeGearFilter, false, false);
 
 if (statChart) {
   statChart.addEventListener("click", (event) => {
