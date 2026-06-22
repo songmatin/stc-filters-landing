@@ -366,16 +366,16 @@ h3 {
 
 .gear-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
 }
 
 .gear-card {
   display: grid;
-  grid-template-rows: auto 48px minmax(24px, auto) minmax(62px, auto) minmax(82px, auto) auto auto;
+  grid-template-rows: auto 38px minmax(22px, auto) minmax(50px, auto) minmax(58px, auto) auto auto;
   align-items: start;
   min-height: 100%;
-  padding: 20px;
+  padding: 14px;
   overflow: hidden;
   background: var(--surface);
   border: 1px solid var(--line);
@@ -392,9 +392,9 @@ h3 {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 12px;
-  min-height: 48px;
-  margin-bottom: 12px;
+  gap: 8px;
+  min-height: 38px;
+  margin-bottom: 8px;
 }
 
 .gear-card__figure {
@@ -402,9 +402,9 @@ h3 {
   place-items: center;
   width: 100%;
   max-width: 100%;
-  aspect-ratio: 3 / 2;
-  min-height: 240px;
-  margin: 0 0 22px;
+  aspect-ratio: 4 / 3;
+  min-height: 156px;
+  margin: 0 0 14px;
   overflow: hidden;
   background: #fbfaf7;
   border: 1px solid var(--line);
@@ -432,10 +432,10 @@ h3 {
 .gear-card__status {
   display: inline-flex;
   align-items: center;
-  min-height: 28px;
-  padding: 3px 9px;
+  min-height: 24px;
+  padding: 2px 8px;
   border-radius: 999px;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
 }
 
@@ -460,10 +460,10 @@ h3 {
 .gear-card__brand {
   display: grid;
   place-items: center;
-  min-height: 24px;
-  margin-bottom: 8px;
+  min-height: 22px;
+  margin-bottom: 6px;
   color: var(--accent-dark);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 800;
   letter-spacing: 0;
   text-transform: uppercase;
@@ -472,9 +472,9 @@ h3 {
 .gear-card h3 {
   display: grid;
   place-items: center;
-  min-height: 62px;
-  margin-bottom: 12px;
-  font-size: 22px;
+  min-height: 50px;
+  margin-bottom: 8px;
+  font-size: 20px;
   line-height: 1.25;
   overflow-wrap: anywhere;
   text-wrap: balance;
@@ -483,9 +483,11 @@ h3 {
 .gear-card__use {
   display: grid;
   place-items: center;
-  min-height: 82px;
-  margin: 0 auto 22px;
+  min-height: 58px;
+  margin: 0 auto 14px;
   max-width: 34em;
+  font-size: 13px !important;
+  line-height: 1.55 !important;
 }
 
 .gear-card[data-brand="apple"] .gear-card__brand { color: #111111; }
@@ -528,7 +530,7 @@ h3 {
   min-width: 0;
   align-self: end;
   margin: 0;
-  padding-top: 18px;
+  padding-top: 12px;
   border-top: 1px solid var(--line);
 }
 
@@ -536,16 +538,16 @@ h3 {
 .gear-card__meta-body {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
+  gap: 8px;
   align-items: center;
   text-align: center;
 }
 
 .gear-card__meta-head {
-  min-height: 26px;
-  margin-bottom: 10px;
+  min-height: 22px;
+  margin-bottom: 6px;
   color: var(--accent-dark);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 800;
 }
 
@@ -555,9 +557,9 @@ h3 {
 }
 
 .gear-card__meta-body {
-  min-height: 46px;
+  min-height: 38px;
   color: var(--muted);
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 650;
   line-height: 1.45;
 }
@@ -571,9 +573,9 @@ h3 {
 
 .gear-card__work-link {
   align-self: end;
-  margin-top: 12px;
+  margin-top: 8px;
   color: var(--muted);
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 750;
   text-decoration: none;
 }
@@ -1057,6 +1059,12 @@ h3 {
   border-top-color: rgba(255, 253, 247, 0.14);
 }
 
+@media (max-width: 1180px) {
+  .gear-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 900px) {
   .grid,
   .service-list {
@@ -1110,9 +1118,13 @@ h3 {
 
   .grid,
   .service-list,
-  .gear-grid,
   .stat-grid {
     grid-template-columns: 1fr;
+  }
+
+  .gear-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
   }
 
   .gear-hero {
@@ -1122,7 +1134,7 @@ h3 {
   .gear-card {
     grid-template-rows: auto auto auto auto auto auto auto;
     min-height: auto;
-    padding: 18px;
+    padding: 10px;
   }
 
   .gear-filters {
@@ -1144,8 +1156,14 @@ h3 {
   }
 
   .gear-card__figure {
-    min-height: 220px;
-    margin-bottom: 18px;
+    min-height: 112px;
+    margin-bottom: 10px;
+    border-radius: 7px;
+  }
+
+  .gear-card__figure img {
+    max-width: calc(100% - 16px);
+    max-height: calc(100% - 16px);
   }
 
   .gear-card__top,
@@ -1155,23 +1173,58 @@ h3 {
     min-height: auto;
   }
 
+  .gear-card__top {
+    gap: 5px;
+    margin-bottom: 6px;
+  }
+
+  .gear-card__tag,
+  .gear-card__status {
+    min-height: 21px;
+    padding: 1px 6px;
+    font-size: 11px;
+  }
+
+  .gear-card__brand {
+    margin-bottom: 4px;
+    font-size: 11px;
+  }
+
+  .gear-card h3 {
+    margin-bottom: 8px;
+    font-size: 15px;
+    line-height: 1.25;
+  }
+
   .gear-card__use {
-    margin-bottom: 18px;
+    display: none;
   }
 
   .gear-card__meta-head,
   .gear-card__meta-body {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 8px;
+    gap: 4px;
   }
 
   .gear-card__meta-head {
-    font-size: 12px;
+    display: none;
+  }
+
+  .gear-card__meta {
+    padding-top: 8px;
   }
 
   .gear-card__meta-body,
   .gear-card__work-link {
-    font-size: 14px;
+    font-size: 11px;
+  }
+
+  .gear-card__meta-body {
+    grid-template-columns: 1fr;
+    line-height: 1.35;
+  }
+
+  .gear-card__work-link {
+    margin-top: 6px;
   }
 
   .filter-header {
@@ -1470,7 +1523,7 @@ const gearGrid = document.querySelector("#gear-grid");
 const gearSummary = document.querySelector("#gear-summary");
 const gearItems = window.kardoGearItems || [];
 const mobileListQuery = window.matchMedia("(max-width: 640px)");
-const mobilePageSize = 8;
+const mobilePageSize = 12;
 let activeGearFilter = "all";
 let mobileVisibleLimit = mobilePageSize;
 
