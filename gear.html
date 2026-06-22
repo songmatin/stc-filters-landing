@@ -194,6 +194,11 @@ h3 {
   padding: clamp(56px, 8vw, 92px) clamp(20px, 5vw, 64px);
 }
 
+.section > * {
+  width: min(1180px, 100%);
+  margin-inline: auto;
+}
+
 .section--muted {
   background: var(--surface);
   border-block: 1px solid var(--line);
@@ -210,7 +215,7 @@ h3 {
 }
 
 .section__heading--split {
-  max-width: none;
+  max-width: min(1180px, 100%);
   display: flex;
   align-items: end;
   justify-content: space-between;
@@ -398,6 +403,7 @@ h3 {
 }
 
 .gear-card__figure {
+  position: relative;
   display: grid;
   place-items: center;
   width: 100%;
@@ -409,6 +415,34 @@ h3 {
   background: #fbfaf7;
   border: 1px solid var(--line);
   border-radius: 8px;
+  isolation: isolate;
+}
+
+.gear-card__figure::before,
+.gear-card__figure::after {
+  position: absolute;
+  content: "";
+  pointer-events: none;
+}
+
+.gear-card__figure::before {
+  inset: -14px;
+  z-index: -2;
+  background:
+    linear-gradient(180deg, rgba(255, 253, 247, 0.06), rgba(255, 253, 247, 0.34)),
+    var(--gear-image) center / cover;
+  filter: blur(18px) saturate(1.12);
+  transform: scale(1.08);
+}
+
+.gear-card__figure::after {
+  inset: 10px;
+  z-index: -1;
+  background: rgba(255, 253, 247, 0.36);
+  border: 1px solid rgba(255, 253, 247, 0.48);
+  border-radius: 7px;
+  backdrop-filter: blur(14px) saturate(1.18);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.34);
 }
 
 .gear-card__figure-empty {
@@ -419,6 +453,8 @@ h3 {
 }
 
 .gear-card__figure img {
+  position: relative;
+  z-index: 1;
   display: block;
   width: auto;
   height: auto;
@@ -426,6 +462,7 @@ h3 {
   max-height: calc(100% - 28px);
   object-fit: contain;
   object-position: center;
+  filter: drop-shadow(0 12px 20px rgba(42, 27, 16, 0.12));
 }
 
 .gear-card__tag,
@@ -1161,6 +1198,17 @@ h3 {
     border-radius: 7px;
   }
 
+  .gear-card__figure::before {
+    inset: -10px;
+    filter: blur(14px) saturate(1.08);
+  }
+
+  .gear-card__figure::after {
+    inset: 6px;
+    border-radius: 6px;
+    backdrop-filter: blur(10px) saturate(1.12);
+  }
+
   .gear-card__figure img {
     max-width: calc(100% - 16px);
     max-height: calc(100% - 16px);
@@ -1552,6 +1600,12 @@ const formatPrice = (item) => {
   return item.priceNote || "以官方產品資訊與台灣公司貨通路參考價整理";
 };
 
+const cssUrl = (value) => String(value)
+  .replace(/\\/g, "\\\\")
+  .replace(/"/g, '\\"')
+  .replace(/</g, "%3C")
+  .replace(/>/g, "%3E");
+
 const createGearCard = (item) => {
   const card = document.createElement("article");
   card.className = "gear-card";
@@ -1560,7 +1614,7 @@ const createGearCard = (item) => {
 
   const statusLabel = item.featured ? "主力設備" : "使用中";
   const photoMarkup = item.imageUrl ? `
-    <figure class="gear-card__figure">
+    <figure class="gear-card__figure" style="--gear-image: url(&quot;${cssUrl(item.imageUrl)}&quot;)">
       <img src="${item.imageUrl}" alt="${item.model}" loading="lazy">
     </figure>
   ` : "";
