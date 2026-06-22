@@ -377,7 +377,7 @@ h3 {
 
 .gear-card {
   display: grid;
-  grid-template-rows: auto minmax(32px, auto) minmax(18px, auto) minmax(44px, auto) minmax(52px, auto) auto auto;
+  grid-template-rows: auto 1fr;
   align-items: start;
   min-height: 100%;
   padding: 0;
@@ -392,15 +392,23 @@ h3 {
   display: none;
 }
 
+.gear-card__content {
+  display: grid;
+  align-content: start;
+  gap: 5px;
+  min-width: 0;
+  padding: 8px 10px 10px;
+}
+
 .gear-card__top {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 8px;
-  min-height: 32px;
+  gap: 6px;
+  min-height: 22px;
   margin: 0;
-  padding: 8px 12px 0;
+  padding: 0;
 }
 
 .gear-card__figure {
@@ -448,9 +456,9 @@ h3 {
   display: inline-flex;
   align-items: center;
   min-height: 24px;
-  padding: 2px 8px;
+  padding: 1px 7px;
   border-radius: 999px;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
 }
 
@@ -475,37 +483,40 @@ h3 {
 .gear-card__brand {
   display: grid;
   place-items: center;
-  min-height: 22px;
+  min-height: 16px;
   margin: 0;
-  padding: 4px 12px 0;
+  padding: 0;
   color: var(--accent-dark);
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 800;
   letter-spacing: 0;
   text-transform: uppercase;
 }
 
 .gear-card h3 {
-  display: grid;
-  place-items: center;
-  min-height: 44px;
+  display: -webkit-box;
+  min-height: 0;
   margin: 0;
-  padding: 3px 12px 0;
-  font-size: 17px;
-  line-height: 1.25;
+  padding: 0 4px;
+  overflow: hidden;
+  font-size: 15px;
+  line-height: 1.18;
   overflow-wrap: anywhere;
-  text-wrap: balance;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .gear-card__use {
-  display: grid;
-  place-items: center;
-  min-height: 52px;
+  display: -webkit-box;
+  min-height: 0;
   margin: 0 auto;
-  padding: 4px 12px 10px;
+  padding: 0 4px;
   max-width: 34em;
-  font-size: 12px !important;
-  line-height: 1.45 !important;
+  overflow: hidden;
+  font-size: 11px !important;
+  line-height: 1.35 !important;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .gear-card[data-brand="apple"] .gear-card__brand { color: #111111; }
@@ -547,24 +558,24 @@ h3 {
   width: 100%;
   min-width: 0;
   align-self: end;
-  width: calc(100% - 24px);
-  margin: 0 12px 12px;
-  padding-top: 10px;
+  margin: 3px 0 0;
+  padding-top: 7px;
   border-top: 1px solid var(--line);
 }
 
 .gear-card__meta-head,
 .gear-card__meta-body {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 8px;
+  grid-template-columns: minmax(0, 1.1fr) auto auto;
+  gap: 7px;
   align-items: center;
   text-align: center;
 }
 
 .gear-card__meta-head {
-  min-height: 22px;
-  margin-bottom: 4px;
+  display: none;
+  min-height: 0;
+  margin-bottom: 0;
   color: var(--accent-dark);
   font-size: 11px;
   font-weight: 800;
@@ -576,11 +587,11 @@ h3 {
 }
 
 .gear-card__meta-body {
-  min-height: 32px;
+  min-height: 22px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 650;
-  line-height: 1.45;
+  line-height: 1.25;
 }
 
 .gear-card__meta-head span,
@@ -592,9 +603,9 @@ h3 {
 
 .gear-card__work-link {
   align-self: end;
-  margin: -4px 12px 12px;
+  margin: 0;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 750;
   text-decoration: none;
 }
@@ -1151,7 +1162,7 @@ h3 {
   }
 
   .gear-card {
-    grid-template-rows: auto auto auto auto auto auto auto;
+    grid-template-rows: auto 1fr;
     min-height: auto;
     padding: 0;
   }
@@ -1186,16 +1197,22 @@ h3 {
   }
 
   .gear-card__top,
+  .gear-card__content,
   .gear-card h3,
   .gear-card__use,
   .gear-card__meta-body {
     min-height: auto;
   }
 
+  .gear-card__content {
+    gap: 4px;
+    padding: 7px 7px 8px;
+  }
+
   .gear-card__top {
     gap: 5px;
     margin-bottom: 0;
-    padding: 7px 8px 0;
+    padding: 0;
   }
 
   .gear-card__tag,
@@ -1207,15 +1224,15 @@ h3 {
 
   .gear-card__brand {
     margin-bottom: 0;
-    padding: 4px 8px 0;
-    font-size: 11px;
+    padding: 0;
+    font-size: 10px;
   }
 
   .gear-card h3 {
     margin-bottom: 0;
-    padding: 4px 8px 7px;
-    font-size: 15px;
-    line-height: 1.25;
+    padding: 0 2px;
+    font-size: 14px;
+    line-height: 1.16;
   }
 
   .gear-card__use {
@@ -1232,23 +1249,23 @@ h3 {
   }
 
   .gear-card__meta {
-    width: calc(100% - 16px);
-    margin: 0 8px 10px;
-    padding-top: 8px;
+    margin: 2px 0 0;
+    padding-top: 6px;
   }
 
   .gear-card__meta-body,
   .gear-card__work-link {
-    font-size: 11px;
+    font-size: 10px;
   }
 
   .gear-card__meta-body {
-    grid-template-columns: 1fr;
-    line-height: 1.35;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    gap: 5px;
+    line-height: 1.2;
   }
 
   .gear-card__work-link {
-    margin-top: 6px;
+    margin-top: 0;
   }
 
   .filter-header {
@@ -1594,26 +1611,28 @@ const createGearCard = (item) => {
 
   card.innerHTML = `
     ${photoMarkup}
-    <div class="gear-card__top">
-      <span class="gear-card__tag">${item.categoryLabel}</span>
-      <span class="gear-card__status">${statusLabel}</span>
-    </div>
-    <p class="gear-card__brand">${item.brand}</p>
-    <h3>${item.model}</h3>
-    <p class="gear-card__use">${item.use}</p>
-    <div class="gear-card__meta" aria-label="設備資訊">
-      <div class="gear-card__meta-head">
-        <span>型號</span>
-        <span>參考售價</span>
-        <span>產品資訊</span>
+    <div class="gear-card__content">
+      <div class="gear-card__top">
+        <span class="gear-card__tag">${item.categoryLabel}</span>
+        <span class="gear-card__status">${statusLabel}</span>
       </div>
-      <div class="gear-card__meta-body">
-        <span>${item.modelCode}</span>
-        <span>${formatPrice(item)}</span>
-        <a href="${item.sourceUrl}" rel="noopener" target="_blank">查看</a>
+      <p class="gear-card__brand">${item.brand}</p>
+      <h3>${item.model}</h3>
+      <p class="gear-card__use">${item.use}</p>
+      <div class="gear-card__meta" aria-label="設備資訊">
+        <div class="gear-card__meta-head">
+          <span>型號</span>
+          <span>參考售價</span>
+          <span>產品資訊</span>
+        </div>
+        <div class="gear-card__meta-body">
+          <span>${item.modelCode}</span>
+          <span>${formatPrice(item)}</span>
+          <a href="${item.sourceUrl}" rel="noopener" target="_blank">產品資訊</a>
+        </div>
       </div>
+      ${flickrMarkup}
     </div>
-    ${flickrMarkup}
   `;
 
   return card;
