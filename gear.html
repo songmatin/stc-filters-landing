@@ -377,10 +377,10 @@ h3 {
 
 .gear-card {
   display: grid;
-  grid-template-rows: auto 38px minmax(22px, auto) minmax(50px, auto) minmax(58px, auto) auto auto;
+  grid-template-rows: auto minmax(32px, auto) minmax(18px, auto) minmax(44px, auto) minmax(52px, auto) auto auto;
   align-items: start;
   min-height: 100%;
-  padding: 14px;
+  padding: 0;
   overflow: hidden;
   background: var(--surface);
   border: 1px solid var(--line);
@@ -398,51 +398,23 @@ h3 {
   justify-content: center;
   flex-wrap: wrap;
   gap: 8px;
-  min-height: 38px;
-  margin-bottom: 8px;
+  min-height: 32px;
+  margin: 0;
+  padding: 8px 12px 0;
 }
 
 .gear-card__figure {
-  position: relative;
   display: grid;
   place-items: center;
   width: 100%;
   max-width: 100%;
-  aspect-ratio: 4 / 3;
-  min-height: 156px;
-  margin: 0 0 14px;
+  aspect-ratio: 1 / 1;
+  min-height: 0;
+  margin: 0;
   overflow: hidden;
-  background: #fbfaf7;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  isolation: isolate;
-}
-
-.gear-card__figure::before,
-.gear-card__figure::after {
-  position: absolute;
-  content: "";
-  pointer-events: none;
-}
-
-.gear-card__figure::before {
-  inset: -14px;
-  z-index: -2;
-  background:
-    linear-gradient(180deg, rgba(255, 253, 247, 0.06), rgba(255, 253, 247, 0.34)),
-    var(--gear-image) center / cover;
-  filter: blur(18px) saturate(1.12);
-  transform: scale(1.08);
-}
-
-.gear-card__figure::after {
-  inset: 10px;
-  z-index: -1;
-  background: rgba(255, 253, 247, 0.36);
-  border: 1px solid rgba(255, 253, 247, 0.48);
-  border-radius: 7px;
-  backdrop-filter: blur(14px) saturate(1.18);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.34);
+  background: #f1eee8;
+  border: 0;
+  border-radius: 0;
 }
 
 .gear-card__figure-empty {
@@ -453,16 +425,14 @@ h3 {
 }
 
 .gear-card__figure img {
-  position: relative;
-  z-index: 1;
   display: block;
-  width: auto;
-  height: auto;
-  max-width: calc(100% - 28px);
-  max-height: calc(100% - 28px);
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  object-fit: cover;
   object-position: center;
-  filter: drop-shadow(0 12px 20px rgba(42, 27, 16, 0.12));
+  filter: none;
 }
 
 .gear-card__tag,
@@ -498,9 +468,10 @@ h3 {
   display: grid;
   place-items: center;
   min-height: 22px;
-  margin-bottom: 6px;
+  margin: 0;
+  padding: 4px 12px 0;
   color: var(--accent-dark);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 800;
   letter-spacing: 0;
   text-transform: uppercase;
@@ -509,9 +480,10 @@ h3 {
 .gear-card h3 {
   display: grid;
   place-items: center;
-  min-height: 50px;
-  margin-bottom: 8px;
-  font-size: 20px;
+  min-height: 44px;
+  margin: 0;
+  padding: 3px 12px 0;
+  font-size: 17px;
   line-height: 1.25;
   overflow-wrap: anywhere;
   text-wrap: balance;
@@ -520,11 +492,12 @@ h3 {
 .gear-card__use {
   display: grid;
   place-items: center;
-  min-height: 58px;
-  margin: 0 auto 14px;
+  min-height: 52px;
+  margin: 0 auto;
+  padding: 4px 12px 10px;
   max-width: 34em;
-  font-size: 13px !important;
-  line-height: 1.55 !important;
+  font-size: 12px !important;
+  line-height: 1.45 !important;
 }
 
 .gear-card[data-brand="apple"] .gear-card__brand { color: #111111; }
@@ -566,8 +539,9 @@ h3 {
   width: 100%;
   min-width: 0;
   align-self: end;
-  margin: 0;
-  padding-top: 12px;
+  width: calc(100% - 24px);
+  margin: 0 12px 12px;
+  padding-top: 10px;
   border-top: 1px solid var(--line);
 }
 
@@ -582,9 +556,9 @@ h3 {
 
 .gear-card__meta-head {
   min-height: 22px;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   color: var(--accent-dark);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 800;
 }
 
@@ -594,9 +568,9 @@ h3 {
 }
 
 .gear-card__meta-body {
-  min-height: 38px;
+  min-height: 32px;
   color: var(--muted);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 650;
   line-height: 1.45;
 }
@@ -610,9 +584,9 @@ h3 {
 
 .gear-card__work-link {
   align-self: end;
-  margin-top: 8px;
+  margin: -4px 12px 12px;
   color: var(--muted);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 750;
   text-decoration: none;
 }
@@ -1171,7 +1145,7 @@ h3 {
   .gear-card {
     grid-template-rows: auto auto auto auto auto auto auto;
     min-height: auto;
-    padding: 10px;
+    padding: 0;
   }
 
   .gear-filters {
@@ -1193,25 +1167,14 @@ h3 {
   }
 
   .gear-card__figure {
-    min-height: 112px;
-    margin-bottom: 10px;
+    min-height: 0;
+    margin-bottom: 0;
     border-radius: 7px;
   }
 
-  .gear-card__figure::before {
-    inset: -10px;
-    filter: blur(14px) saturate(1.08);
-  }
-
-  .gear-card__figure::after {
-    inset: 6px;
-    border-radius: 6px;
-    backdrop-filter: blur(10px) saturate(1.12);
-  }
-
   .gear-card__figure img {
-    max-width: calc(100% - 16px);
-    max-height: calc(100% - 16px);
+    max-width: none;
+    max-height: none;
   }
 
   .gear-card__top,
@@ -1223,7 +1186,8 @@ h3 {
 
   .gear-card__top {
     gap: 5px;
-    margin-bottom: 6px;
+    margin-bottom: 0;
+    padding: 7px 8px 0;
   }
 
   .gear-card__tag,
@@ -1234,12 +1198,14 @@ h3 {
   }
 
   .gear-card__brand {
-    margin-bottom: 4px;
+    margin-bottom: 0;
+    padding: 4px 8px 0;
     font-size: 11px;
   }
 
   .gear-card h3 {
-    margin-bottom: 8px;
+    margin-bottom: 0;
+    padding: 4px 8px 7px;
     font-size: 15px;
     line-height: 1.25;
   }
@@ -1258,6 +1224,8 @@ h3 {
   }
 
   .gear-card__meta {
+    width: calc(100% - 16px);
+    margin: 0 8px 10px;
     padding-top: 8px;
   }
 
@@ -1600,12 +1568,6 @@ const formatPrice = (item) => {
   return item.priceNote || "以官方產品資訊與台灣公司貨通路參考價整理";
 };
 
-const cssUrl = (value) => String(value)
-  .replace(/\\/g, "\\\\")
-  .replace(/"/g, '\\"')
-  .replace(/</g, "%3C")
-  .replace(/>/g, "%3E");
-
 const createGearCard = (item) => {
   const card = document.createElement("article");
   card.className = "gear-card";
@@ -1614,7 +1576,7 @@ const createGearCard = (item) => {
 
   const statusLabel = item.featured ? "主力設備" : "使用中";
   const photoMarkup = item.imageUrl ? `
-    <figure class="gear-card__figure" style="--gear-image: url(&quot;${cssUrl(item.imageUrl)}&quot;)">
+    <figure class="gear-card__figure">
       <img src="${item.imageUrl}" alt="${item.model}" loading="lazy">
     </figure>
   ` : "";
