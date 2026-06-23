@@ -506,6 +506,11 @@ h3 {
   -webkit-line-clamp: 2;
 }
 
+.gear-card__title-brand {
+  color: var(--accent-dark);
+  font-weight: 850;
+}
+
 .gear-card__use {
   display: -webkit-box;
   min-height: 0;
@@ -519,39 +524,72 @@ h3 {
   -webkit-line-clamp: 2;
 }
 
-.gear-card[data-brand="apple"] .gear-card__brand { color: #111111; }
-.gear-card[data-brand="acer"] .gear-card__brand { color: #83b81a; }
-.gear-card[data-brand="asus"] .gear-card__brand { color: #d71920; }
-.gear-card[data-brand="benq"] .gear-card__brand { color: #6f42c1; }
-.gear-card[data-brand="caldigit"] .gear-card__brand { color: #1c62a8; }
-.gear-card[data-brand="datacolor"] .gear-card__brand { color: #c3342f; }
-.gear-card[data-brand="dell"] .gear-card__brand { color: #0076ce; }
-.gear-card[data-brand="dji"] .gear-card__brand { color: #111827; }
-.gear-card[data-brand="ehomewei"] .gear-card__brand { color: #2364aa; }
-.gear-card[data-brand="godox"] .gear-card__brand { color: #f28b20; }
-.gear-card[data-brand="fotopro"] .gear-card__brand { color: #3f4b57; }
-.gear-card[data-brand="insta360"] .gear-card__brand { color: #f97316; }
-.gear-card[data-brand="laowa"] .gear-card__brand { color: #0d5c63; }
-.gear-card[data-brand="kef"] .gear-card__brand { color: #1f2937; }
-.gear-card[data-brand="lexar"] .gear-card__brand { color: #d71920; }
-.gear-card[data-brand="lg"] .gear-card__brand { color: #a50034; }
-.gear-card[data-brand="logitech"] .gear-card__brand { color: #00a78e; }
-.gear-card[data-brand="marsace"] .gear-card__brand { color: #4b5563; }
-.gear-card[data-brand="monitormate"] .gear-card__brand { color: #2563eb; }
-.gear-card[data-brand="motti"] .gear-card__brand { color: #6b7280; }
-.gear-card[data-brand="nanlite"] .gear-card__brand { color: #009fe3; }
-.gear-card[data-brand="om-system"] .gear-card__brand { color: #0f172a; }
-.gear-card[data-brand="owc"] .gear-card__brand { color: #005eb8; }
-.gear-card[data-brand="panasonic"] .gear-card__brand { color: #005bac; }
-.gear-card[data-brand="ricoh"] .gear-card__brand { color: #d71920; }
-.gear-card[data-brand="rode"] .gear-card__brand { color: #111111; }
-.gear-card[data-brand="shimoda"] .gear-card__brand { color: #566057; }
-.gear-card[data-brand="sony"] .gear-card__brand { color: #111111; }
-.gear-card[data-brand="synology"] .gear-card__brand { color: #2f7d32; }
-.gear-card[data-brand="ulanzi"] .gear-card__brand { color: #d64b16; }
-.gear-card[data-brand="vixen"] .gear-card__brand { color: #1f4e79; }
-.gear-card[data-brand="wd"] .gear-card__brand { color: #005195; }
-.gear-card[data-brand="zhiyun"] .gear-card__brand { color: #1f6f64; }
+.gear-card[data-brand="apple"] .gear-card__brand,
+.gear-card[data-brand="apple"] .gear-card__title-brand { color: #111111; }
+.gear-card[data-brand="acer"] .gear-card__brand,
+.gear-card[data-brand="acer"] .gear-card__title-brand { color: #83b81a; }
+.gear-card[data-brand="asus"] .gear-card__brand,
+.gear-card[data-brand="asus"] .gear-card__title-brand { color: #d71920; }
+.gear-card[data-brand="benq"] .gear-card__brand,
+.gear-card[data-brand="benq"] .gear-card__title-brand { color: #6f42c1; }
+.gear-card[data-brand="caldigit"] .gear-card__brand,
+.gear-card[data-brand="caldigit"] .gear-card__title-brand { color: #1c62a8; }
+.gear-card[data-brand="datacolor"] .gear-card__brand,
+.gear-card[data-brand="datacolor"] .gear-card__title-brand { color: #c3342f; }
+.gear-card[data-brand="dell"] .gear-card__brand,
+.gear-card[data-brand="dell"] .gear-card__title-brand { color: #0076ce; }
+.gear-card[data-brand="dji"] .gear-card__brand,
+.gear-card[data-brand="dji"] .gear-card__title-brand { color: #111827; }
+.gear-card[data-brand="ehomewei"] .gear-card__brand,
+.gear-card[data-brand="ehomewei"] .gear-card__title-brand { color: #2364aa; }
+.gear-card[data-brand="godox"] .gear-card__brand,
+.gear-card[data-brand="godox"] .gear-card__title-brand { color: #f28b20; }
+.gear-card[data-brand="fotopro"] .gear-card__brand,
+.gear-card[data-brand="fotopro"] .gear-card__title-brand { color: #3f4b57; }
+.gear-card[data-brand="insta360"] .gear-card__brand,
+.gear-card[data-brand="insta360"] .gear-card__title-brand { color: #f97316; }
+.gear-card[data-brand="laowa"] .gear-card__brand,
+.gear-card[data-brand="laowa"] .gear-card__title-brand { color: #0d5c63; }
+.gear-card[data-brand="kef"] .gear-card__brand,
+.gear-card[data-brand="kef"] .gear-card__title-brand { color: #1f2937; }
+.gear-card[data-brand="lexar"] .gear-card__brand,
+.gear-card[data-brand="lexar"] .gear-card__title-brand { color: #d71920; }
+.gear-card[data-brand="lg"] .gear-card__brand,
+.gear-card[data-brand="lg"] .gear-card__title-brand { color: #a50034; }
+.gear-card[data-brand="logitech"] .gear-card__brand,
+.gear-card[data-brand="logitech"] .gear-card__title-brand { color: #00a78e; }
+.gear-card[data-brand="marsace"] .gear-card__brand,
+.gear-card[data-brand="marsace"] .gear-card__title-brand { color: #4b5563; }
+.gear-card[data-brand="monitormate"] .gear-card__brand,
+.gear-card[data-brand="monitormate"] .gear-card__title-brand { color: #2563eb; }
+.gear-card[data-brand="motti"] .gear-card__brand,
+.gear-card[data-brand="motti"] .gear-card__title-brand { color: #6b7280; }
+.gear-card[data-brand="nanlite"] .gear-card__brand,
+.gear-card[data-brand="nanlite"] .gear-card__title-brand { color: #009fe3; }
+.gear-card[data-brand="om-system"] .gear-card__brand,
+.gear-card[data-brand="om-system"] .gear-card__title-brand { color: #0f172a; }
+.gear-card[data-brand="owc"] .gear-card__brand,
+.gear-card[data-brand="owc"] .gear-card__title-brand { color: #005eb8; }
+.gear-card[data-brand="panasonic"] .gear-card__brand,
+.gear-card[data-brand="panasonic"] .gear-card__title-brand { color: #005bac; }
+.gear-card[data-brand="ricoh"] .gear-card__brand,
+.gear-card[data-brand="ricoh"] .gear-card__title-brand { color: #d71920; }
+.gear-card[data-brand="rode"] .gear-card__brand,
+.gear-card[data-brand="rode"] .gear-card__title-brand { color: #111111; }
+.gear-card[data-brand="shimoda"] .gear-card__brand,
+.gear-card[data-brand="shimoda"] .gear-card__title-brand { color: #566057; }
+.gear-card[data-brand="sony"] .gear-card__brand,
+.gear-card[data-brand="sony"] .gear-card__title-brand { color: #111111; }
+.gear-card[data-brand="synology"] .gear-card__brand,
+.gear-card[data-brand="synology"] .gear-card__title-brand { color: #2f7d32; }
+.gear-card[data-brand="ulanzi"] .gear-card__brand,
+.gear-card[data-brand="ulanzi"] .gear-card__title-brand { color: #d64b16; }
+.gear-card[data-brand="vixen"] .gear-card__brand,
+.gear-card[data-brand="vixen"] .gear-card__title-brand { color: #1f4e79; }
+.gear-card[data-brand="wd"] .gear-card__brand,
+.gear-card[data-brand="wd"] .gear-card__title-brand { color: #005195; }
+.gear-card[data-brand="zhiyun"] .gear-card__brand,
+.gear-card[data-brand="zhiyun"] .gear-card__title-brand { color: #1f6f64; }
 
 .gear-card__meta {
   display: grid;
@@ -566,7 +604,7 @@ h3 {
 .gear-card__meta-head,
 .gear-card__meta-body {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) auto auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   gap: 7px;
   align-items: center;
   text-align: center;
@@ -1259,7 +1297,7 @@ h3 {
   }
 
   .gear-card__meta-body {
-    grid-template-columns: minmax(0, 1fr) auto auto;
+    grid-template-columns: minmax(0, 1fr) auto;
     gap: 5px;
     line-height: 1.2;
   }
@@ -1590,7 +1628,7 @@ const formatPrice = (item) => {
     return `${formatCurrency(item.msrp)}${quantityLabel}`;
   }
 
-  return item.priceNote || "以官方產品資訊與台灣公司貨通路參考價整理";
+  return item.priceNote || "以台灣公司貨通路參考價整理";
 };
 
 const createGearCard = (item) => {
@@ -1608,6 +1646,11 @@ const createGearCard = (item) => {
   const flickrMarkup = item.flickrUrl ? `
     <a class="gear-card__work-link" href="${item.flickrUrl}" rel="noopener" target="_blank">查看 里卡豆 作品</a>
   ` : "";
+  const modelCodeMarkup = item.sourceUrl ? `
+    <a href="${item.sourceUrl}" rel="noopener" target="_blank">${item.modelCode}</a>
+  ` : `
+    <span>${item.modelCode}</span>
+  `;
 
   card.innerHTML = `
     ${photoMarkup}
@@ -1616,19 +1659,16 @@ const createGearCard = (item) => {
         <span class="gear-card__tag">${item.categoryLabel}</span>
         <span class="gear-card__status">${statusLabel}</span>
       </div>
-      <p class="gear-card__brand">${item.brand}</p>
-      <h3>${item.model}</h3>
+      <h3><span class="gear-card__title-brand">${item.brand}</span> ${item.model}</h3>
       <p class="gear-card__use">${item.use}</p>
       <div class="gear-card__meta" aria-label="設備資訊">
         <div class="gear-card__meta-head">
           <span>型號</span>
           <span>參考售價</span>
-          <span>產品資訊</span>
         </div>
         <div class="gear-card__meta-body">
-          <span>${item.modelCode}</span>
+          ${modelCodeMarkup}
           <span>${formatPrice(item)}</span>
-          <a href="${item.sourceUrl}" rel="noopener" target="_blank">產品資訊</a>
         </div>
       </div>
       ${flickrMarkup}
