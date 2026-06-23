@@ -388,6 +388,12 @@ h3 {
   text-align: center;
 }
 
+@media (hover: hover) and (pointer: fine) {
+  .gear-card:hover .gear-card__figure img {
+    transform: scale(1.045);
+  }
+}
+
 .gear-card.is-hidden {
   display: none;
 }
@@ -395,9 +401,9 @@ h3 {
 .gear-card__content {
   display: grid;
   align-content: start;
-  gap: 5px;
+  gap: 6px;
   min-width: 0;
-  padding: 8px 10px 10px;
+  padding: 9px 10px 10px;
 }
 
 .gear-card__top {
@@ -444,6 +450,8 @@ h3 {
   object-fit: cover;
   object-position: center;
   filter: none;
+  transition: transform 360ms ease;
+  will-change: transform;
 }
 
 .gear-card__figure::before,
@@ -456,10 +464,12 @@ h3 {
   display: inline-flex;
   align-items: center;
   min-height: 24px;
-  padding: 1px 7px;
+  padding: 1px 8px;
   border-radius: 999px;
   font-size: 11px;
   font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0;
 }
 
 .gear-card__tag {
@@ -476,7 +486,7 @@ h3 {
   margin-bottom: 0;
   color: var(--muted);
   font-size: 15px;
-  line-height: 1.72;
+  line-height: 1.45;
   overflow-wrap: anywhere;
 }
 
@@ -497,10 +507,11 @@ h3 {
   display: -webkit-box;
   min-height: 0;
   margin: 0;
-  padding: 0 4px;
+  padding: 1px 4px 0;
   overflow: hidden;
   font-size: 15px;
-  line-height: 1.18;
+  line-height: 1.24;
+  letter-spacing: 0;
   overflow-wrap: anywhere;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
@@ -509,6 +520,7 @@ h3 {
 .gear-card__title-brand {
   color: var(--accent-dark);
   font-weight: 850;
+  white-space: nowrap;
 }
 
 .gear-card__use {
@@ -519,7 +531,8 @@ h3 {
   max-width: 34em;
   overflow: hidden;
   font-size: 11px !important;
-  line-height: 1.35 !important;
+  line-height: 1.42 !important;
+  letter-spacing: 0;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 }
@@ -596,8 +609,8 @@ h3 {
   width: 100%;
   min-width: 0;
   align-self: end;
-  margin: 3px 0 0;
-  padding-top: 7px;
+  margin: 2px 0 0;
+  padding-top: 8px;
   border-top: 1px solid var(--line);
 }
 
@@ -627,9 +640,10 @@ h3 {
 .gear-card__meta-body {
   min-height: 22px;
   color: var(--muted);
-  font-size: 11px;
-  font-weight: 650;
-  line-height: 1.25;
+  font-size: 10.5px;
+  font-weight: 700;
+  line-height: 1.32;
+  letter-spacing: 0;
 }
 
 .gear-card__meta-head span,
@@ -643,7 +657,9 @@ h3 {
   align-self: end;
   margin: 0;
   color: var(--muted);
-  font-size: 11px;
+  font-size: 10.5px;
+  line-height: 1.25;
+  letter-spacing: 0;
   font-weight: 750;
   text-decoration: none;
 }
@@ -1257,7 +1273,8 @@ h3 {
   .gear-card__status {
     min-height: 21px;
     padding: 1px 6px;
-    font-size: 11px;
+    font-size: 10px;
+    line-height: 1.2;
   }
 
   .gear-card__brand {
@@ -1269,8 +1286,8 @@ h3 {
   .gear-card h3 {
     margin-bottom: 0;
     padding: 0 2px;
-    font-size: 14px;
-    line-height: 1.16;
+    font-size: 13px;
+    line-height: 1.22;
   }
 
   .gear-card__use {
