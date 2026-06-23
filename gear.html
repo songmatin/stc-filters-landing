@@ -494,9 +494,20 @@ h3 {
   background: #f5e7d4;
 }
 
-.gear-card__status {
+.gear-card__status,
+.gear-card__status--featured {
   color: #6b4b16;
   background: #f4e6c8;
+}
+
+.gear-card__status--active {
+  color: var(--accent-dark);
+  background: #e6eeee;
+}
+
+.gear-card__status--rare {
+  color: var(--muted);
+  background: #efe8df;
 }
 
 .gear-card p {
@@ -1727,13 +1738,25 @@ const formatPrice = (item) => {
   return item.priceNote || "以台灣公司貨通路參考價整理";
 };
 
+const gearStatus = (item) => {
+  if (item.status === "rare") {
+    return { label: "不常用", className: "gear-card__status gear-card__status--rare" };
+  }
+
+  if (item.status === "featured" || item.featured) {
+    return { label: "主力", className: "gear-card__status gear-card__status--featured" };
+  }
+
+  return { label: "使用中", className: "gear-card__status gear-card__status--active" };
+};
+
 const createGearCard = (item) => {
   const card = document.createElement("article");
   card.className = "gear-card";
   card.dataset.category = item.category;
   card.dataset.brand = item.brandKey || "";
 
-  const statusLabel = item.featured ? "主力設備" : "使用中";
+  const status = gearStatus(item);
   const photoMarkup = item.imageUrl ? `
     <figure class="gear-card__figure">
       <img src="${item.imageUrl}" alt="${item.model}" loading="lazy">
@@ -1753,7 +1776,7 @@ const createGearCard = (item) => {
     <div class="gear-card__content">
       <div class="gear-card__top">
         <span class="gear-card__tag">${item.categoryLabel}</span>
-        <span class="gear-card__status">${statusLabel}</span>
+        <span class="${status.className}">${status.label}</span>
       </div>
       <h3><span class="gear-card__title-brand">${item.brand}</span> ${item.model}</h3>
       <p class="gear-card__use">${item.use}</p>
