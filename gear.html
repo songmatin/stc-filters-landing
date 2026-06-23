@@ -578,6 +578,8 @@ h3 {
 .gear-card[data-brand="benq"] .gear-card__title-brand { color: #6f42c1; }
 .gear-card[data-brand="caldigit"] .gear-card__brand,
 .gear-card[data-brand="caldigit"] .gear-card__title-brand { color: #1c62a8; }
+.gear-card[data-brand="chipfancier"] .gear-card__brand,
+.gear-card[data-brand="chipfancier"] .gear-card__title-brand { color: #111111; }
 .gear-card[data-brand="datacolor"] .gear-card__brand,
 .gear-card[data-brand="datacolor"] .gear-card__title-brand { color: #c3342f; }
 .gear-card[data-brand="dell"] .gear-card__brand,
@@ -596,6 +598,8 @@ h3 {
 .gear-card[data-brand="laowa"] .gear-card__title-brand { color: #0d5c63; }
 .gear-card[data-brand="kef"] .gear-card__brand,
 .gear-card[data-brand="kef"] .gear-card__title-brand { color: #1f2937; }
+.gear-card[data-brand="kingston"] .gear-card__brand,
+.gear-card[data-brand="kingston"] .gear-card__title-brand { color: #c8102e; }
 .gear-card[data-brand="lexar"] .gear-card__brand,
 .gear-card[data-brand="lexar"] .gear-card__title-brand { color: #d71920; }
 .gear-card[data-brand="lg"] .gear-card__brand,
@@ -620,6 +624,8 @@ h3 {
 .gear-card[data-brand="ricoh"] .gear-card__title-brand { color: #d71920; }
 .gear-card[data-brand="rode"] .gear-card__brand,
 .gear-card[data-brand="rode"] .gear-card__title-brand { color: #111111; }
+.gear-card[data-brand="sandisk"] .gear-card__brand,
+.gear-card[data-brand="sandisk"] .gear-card__title-brand { color: #e10600; }
 .gear-card[data-brand="shimoda"] .gear-card__brand,
 .gear-card[data-brand="shimoda"] .gear-card__title-brand { color: #566057; }
 .gear-card[data-brand="sony"] .gear-card__brand,
@@ -1672,15 +1678,22 @@ window.kardoGearItems = [
   { category: "mobile", categoryLabel: "移動設備", featured: false, brand: "Apple", brandKey: "apple", model: "Magic Keyboard for iPad Pro", modelCode: "Magic Keyboard", msrp: 11690, sourceUrl: "https://www.apple.com/tw/shop/ipad/accessories", use: "搭配 iPad 的行動輸入設備，支援外出文字工作。" },
   { category: "mobile", categoryLabel: "移動設備", featured: false, brand: "EHOMEWEI", brandKey: "ehomewei", model: "Q1PRO", modelCode: "Q1PRO", msrp: 7250, sourceUrl: "https://www.ehomewei.com/", use: "外接螢幕，支援外出剪輯、修圖與雙螢幕工作流。" },
 
-  // 儲存設備（6）
+  // 儲存設備（13）
   { category: "storage", categoryLabel: "儲存設備", featured: false, brand: "OWC", brandKey: "owc", model: "ThunderBay 8", modelCode: "8-Bay Thunderbolt 3", msrp: 25900, priceNote: "台灣通路若無穩定頁面，先以 OWC 官方裸盒價格換算為參考。", sourceUrl: "https://www.owc.com/solutions/thunderbay-8", imageUrl: "https://live.staticflickr.com/65535/54487104725_c155b53226_b.jpg", use: "8-Bay Thunderbolt 外接儲存盒，用於大量影像素材與 RAID 工作流。" },
   { category: "storage", categoryLabel: "儲存設備", featured: false, brand: "OWC", brandKey: "owc", model: "Atlas Pro 960GB 記憶卡 CFexpress A 型 4.0", modelCode: "OWC Atlas Pro", msrp: 17160, imageUrl: "https://live.staticflickr.com/65535/54486952449_d2a40e237b_b.jpg", use: "能全速寫入8K影像的高速記憶卡" },
   { category: "storage", categoryLabel: "儲存設備", featured: false, brand: "Synology", brandKey: "synology", model: "DiskStation DS923+", modelCode: "DS923+", msrp: 17999, priceNote: "以台灣 NAS 通路常見公司貨售價為參考。", sourceUrl: "https://www.synology.com/zh-tw/products/DS923+", imageUrl: "https://live.staticflickr.com/65535/53113052613_4789c94118_b.jpg", use: "桌面資料集中管理與長期備份設備，支援影像檔案歸檔。" },
   { category: "storage", categoryLabel: "儲存設備", featured: false, brand: "MonitorMate", brandKey: "monitormate", model: "T-Max + Lexar NM790 4TB M.2 2280", modelCode: "T-Max / NM790 4TB", msrp: 13990, priceNote: "組合型設備，以外接盒與 4TB M.2 SSD 台灣通路合計參考價呈現。", sourceUrl: "https://www.lexar.com/product/lexar-nm790-m-2-2280-pcie-gen-4x4-nvme-ssd/", imageUrl: "https://www-oss.lexar.com/lexar/images/2024-10-15/1ec4811e902945e68ac69d6ebc33d153.webp?202606161336", use: "大容量移動 SSD 工作碟，用於專案素材交換與現場備份。" },
   { category: "storage", categoryLabel: "儲存設備", featured: false, brand: "Western Digital", brandKey: "wd", model: "Ultrastar DC HC550 16TB *11", modelCode: "WD HC550 16TB", msrp: 128000, priceNote: "企業硬碟以台灣公司貨通路常見報價為參考。", sourceUrl: "https://www.westerndigital.com/products/internal-drives/data-center-drives/ultrastar-dc-hc550-hdd", imageUrl: "https://www.westerndigital.com/content/dam/store/en-us/assets/products/internal-storage/ultrastar-dc-hc550-hdd/gallery/ultrastar-dc-hc550-hdd-14tb-left.png", use: "大量影像素材歸檔硬碟，用於長期儲存與備份。" },
   { category: "storage", categoryLabel: "儲存設備", featured: false, brand: "ASUS ROG", brandKey: "asus", model: "ROG Strix Arion EVA Edition + Acer Predator GM7000 2TB", modelCode: "ROG Strix Arion EVA / GM7000 2TB", msrp: 5580, priceNote: "組合型設備，以外接盒與 2TB M.2 SSD 台灣通路合計參考價呈現。", sourceUrl: "https://rog.asus.com/tw/storage/rog-strix-arion-model/", imageUrl: "https://dlcdnwebimgs.asus.com/gain/1C8633EE-B286-4D83-BEC2-21C6C2361454", use: "移動 SSD 工作碟，用於外出拍攝後的素材備份與快速剪輯。" },
+  { category: "storage", categoryLabel: "儲存設備", status: "active", featured: false, brand: "Kingston", brandKey: "kingston", model: "Canvas React Plus V60 SD Memory Card 256GB", modelCode: "SDR2V6/256GB", priceNote: "待補售價", sourceUrl: "https://www.kingston.com/tw/memory-cards?sortby=nameatz&card%20type=sd", use: "UHS-II V60 SDXC 記憶卡，用於相機照片與 4K 影片素材記錄。" },
+  { category: "storage", categoryLabel: "儲存設備", status: "active", featured: false, brand: "Kingston", brandKey: "kingston", model: "Canvas React Plus V60 SD Memory Card 512GB", modelCode: "SDR2V6/512GB", priceNote: "待補售價", sourceUrl: "https://www.kingston.com/tw/memory-cards?sortby=nameatz&card%20type=sd", use: "UHS-II V60 SDXC 記憶卡，用於長時間拍攝與高容量素材記錄。" },
+  { category: "storage", categoryLabel: "儲存設備", status: "active", featured: false, brand: "SanDisk", brandKey: "sandisk", model: "Extreme PRO SDXC UHS-I Card 128GB", modelCode: "SDSDXXD-128G", priceNote: "待補售價", sourceUrl: "https://www.sandisk.com/products/memory-cards/sd-cards/sandisk-extreme-pro-uhs-i-sd?sku=SDSDXXD-128G-GN4IN", use: "UHS-I SDXC 記憶卡，用於日常照片、影片與備用素材記錄。" },
+  { category: "storage", categoryLabel: "儲存設備", status: "active", featured: false, brand: "SanDisk", brandKey: "sandisk", model: "Extreme PRO SDXC UHS-I Card 256GB", modelCode: "SDSDXXD-256G", priceNote: "待補售價", sourceUrl: "https://www.sandisk.com/products/memory-cards/sd-cards/sandisk-extreme-pro-uhs-i-sd", use: "UHS-I SDXC 記憶卡，用於較長時間拍攝與外出備援。" },
+  { category: "storage", categoryLabel: "儲存設備", status: "active", featured: false, brand: "CHIPFANCIER", brandKey: "chipfancier", model: "CFexpress 4.0 Type A 記憶卡 1TB（二代）", modelCode: "CFA4.0 1TB", priceNote: "待補售價", use: "CFexpress Type A 高速記憶卡，用於 Sony 機身高資料量照片與影片記錄。" },
+  { category: "storage", categoryLabel: "儲存設備", status: "active", featured: false, brand: "Lexar", brandKey: "lexar", model: "Professional USB-C Dual-Slot Reader", modelCode: "LRW470", priceNote: "待補售價", sourceUrl: "https://www.lexar.com/global/", use: "USB-C 雙槽讀卡機，用於 SD 與 microSD 素材快速匯入。" },
+  { category: "storage", categoryLabel: "儲存設備", status: "active", featured: false, brand: "Lexar", brandKey: "lexar", model: "Professional CFexpress USB 3.2 Gen 2 讀卡機", modelCode: "CFexpress Type A / Type B", priceNote: "待補售價", sourceUrl: "https://www.lexar.com/global/", use: "CFexpress 高速讀卡機，用於 Type A 與 Type B 記憶卡素材匯入。" },
 
-  // 桌面配置（11）
+  // 桌面配置（13）
   { category: "desktop", categoryLabel: "桌面配置", featured: false, brand: "Apple", brandKey: "apple", model: "MacBook Pro M5 Max", modelCode: "MacBook Pro", msrp: 198650, priceNote: "依 Apple 台灣客製化規格結帳價格為準。", sourceUrl: "https://www.apple.com/tw/shop/buy-mac/macbook-pro", use: "主要後製與移動工作電腦，處理修圖、剪輯、備份與交付。" },
   { category: "desktop", categoryLabel: "桌面配置", featured: false, brand: "LG", brandKey: "lg", model: "UltraFine 6K Monitor 32U990A", modelCode: "32U990A", msrp: 64900, priceNote: "台灣頁面若未公開售價，先以海外官方通路售價換算為參考。", sourceUrl: "https://www.lg.com/tw/monitors/ultrafine/32u990a-w/", imageUrl: "https://live.staticflickr.com/65535/55315226079_24b0f49909_b.jpg", use: "主力高解析度後製螢幕，用於照片修圖、影片剪輯與色彩檢視。" },
   { category: "desktop", categoryLabel: "桌面配置", featured: false, brand: "Dell", brandKey: "dell", model: "UltraSharp 27 4K USB-C Hub Monitor", modelCode: "U2723QX", msrp: 19900, priceNote: "以 Dell 台灣與台灣購物通路常見公司貨售價為參考。", sourceUrl: "https://www.dell.com/zh-tw/shop/dell-ultrasharp-27-4k-usb-c-hub-monitor-u2723qe/apd/210-bdpf/monitors-monitor-accessories", imageUrl: "https://live.staticflickr.com/65535/52327205244_1b672ba79f_b.jpg", use: "桌面副螢幕，用於素材管理、時間軸、文件與多視窗工作。" },
@@ -1688,6 +1701,8 @@ window.kardoGearItems = [
   { category: "desktop", categoryLabel: "桌面配置", featured: false, brand: "MOTTI", brandKey: "MOTTI", model: "KIIN Electric Standing Desk", modelCode: "KIIN", msrp: 23900, priceNote: "以 MOTTI 台灣官網與通路參考價整理。", sourceUrl: "https://motti.com.tw/", use: "升降桌，支援長時間修圖與剪輯時的坐站切換。" },
   { category: "desktop", categoryLabel: "桌面配置", featured: false, brand: "CalDigit", brandKey: "caldigit", model: "Thunderbolt Station 5", modelCode: "TS5", msrp: 13980, sourceUrl: "https://www.caldigit.com/thunderbolt-station-5/", use: "桌面擴充底座，整合儲存、螢幕與周邊連接。" },
   { category: "desktop", categoryLabel: "桌面配置", featured: false, brand: "MonitorMate", brandKey: "monitormate", model: "TD2 Thunderbolt 5 Dock", modelCode: "TD2 雷電五", msrp: 9900, priceNote: "以 MonitorMate 台灣官網與通路參考價整理。", sourceUrl: "https://www.monitormate.com.tw/", use: "Thunderbolt 5 桌面擴充裝置，用於高速周邊、螢幕與儲存設備串接。" },
+  { category: "desktop", categoryLabel: "桌面配置", status: "active", featured: false, brand: "MonitorMate", brandKey: "monitormate", model: "CX1 USB-C Gen2 十合一極速轉接器", modelCode: "CX1 Gen2", msrp: 2890, sourceUrl: "https://www.monitormate.com.tw/pages/cx1", use: "USB-C 十合一轉接器，整合讀卡、外接螢幕、網路與資料傳輸。" },
+  { category: "desktop", categoryLabel: "桌面配置", status: "active", featured: false, brand: "MonitorMate", brandKey: "monitormate", model: "Ci6 USB-C Gen2 六合一小方塊轉接器", modelCode: "Ci6G2", msrp: 1990, sourceUrl: "https://www.monitormate.com.tw/pages/ci6", use: "USB-C 六合一轉接器，用於行動設備的讀卡、螢幕輸出與資料傳輸。" },
   { category: "desktop", categoryLabel: "桌面配置", featured: false, brand: "BenQ", brandKey: "benq", model: "ScreenBar Pro", modelCode: "ScreenBar Pro", msrp: 4990, sourceUrl: "https://www.benq.com/zh-tw/lighting/monitor-light/screenbar-pro.html", imageUrl: "https://image.benq.com/is/image/benqco/screenbar-pro-product?$ResponsivePreset$", use: "螢幕燈，改善桌面照明並降低長時間後製的眼睛負擔。" },
   { category: "desktop", categoryLabel: "桌面配置", featured: false, brand: "Logitech", brandKey: "logitech", model: "MX Master 4", modelCode: "MX Master 4", msrp: 3790, priceNote: "以 Logitech 台灣官網與通路參考價整理。", sourceUrl: "https://www.logitech.com/zh-tw/products/mice/mx-master-4.html", use: "桌面滑鼠，用於精準修圖、剪輯與多裝置切換。" },
   { category: "desktop", categoryLabel: "桌面配置", featured: false, brand: "Apple", brandKey: "apple", model: "Magic Keyboard with Touch ID", modelCode: "Magic Keyboard", msrp: 5890, sourceUrl: "https://www.apple.com/tw/shop/mac/accessories", use: "桌面全尺寸鍵盤，用於剪輯快捷鍵、文字工作與長時間輸入。" },
