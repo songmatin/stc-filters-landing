@@ -623,8 +623,9 @@ h3 {
 
 .gear-card__meta-head,
 .gear-card__meta-body {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
   gap: 6px;
   align-items: center;
   text-align: center;
@@ -661,6 +662,11 @@ h3 {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.gear-card__meta-body span,
+.gear-card__meta-body a {
+  flex: 0 1 auto;
 }
 
 .gear-card__work-link {
@@ -1325,7 +1331,7 @@ h3 {
   }
 
   .gear-card__meta-body {
-    grid-template-columns: minmax(0, 1fr) auto;
+    justify-content: center;
     gap: 4px;
     line-height: 1.15;
   }
