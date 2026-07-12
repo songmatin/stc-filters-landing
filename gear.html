@@ -1474,6 +1474,70 @@ h3 {
   }
 }
 
+/* 鏡頭使用佔比 */
+.lens-usage__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.lens-usage__meta {
+  margin: 0 0 4px;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+}
+
+.lens-usage__span {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+}
+
+.lens-usage__span b {
+  color: var(--accent-dark);
+  font-weight: 700;
+}
+
+.lens-usage__chart {
+  margin-top: 4px;
+}
+
+.lens-usage__chart svg {
+  max-width: 900px;
+}
+
+.lens-usage__legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 16px;
+  max-width: 660px;
+  margin: 12px auto 0;
+}
+
+.lens-legend__item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--ink);
+  font-size: 12px;
+}
+
+.lens-legend__item b {
+  color: var(--accent-dark);
+  font-weight: 700;
+}
+
+.lens-legend__swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  flex: none;
+}
+
 </style>
       <!-- 單檔版：此版本已內嵌 CSS、資料與互動程式，可用於 Wix HTML 嵌入或靜態網站直接部署。 -->
   </head>
@@ -1566,6 +1630,20 @@ h3 {
         <div class="stat-rank">
           <h3 class="stat-rank__title">設備佔比</h3>
           <div class="stat-chart" id="stat-chart" aria-label="各分類設備價值佔比圓餅圖"></div>
+        </div>
+      </section>
+
+      <section id="lens-usage" class="section" aria-labelledby="lens-usage-title">
+        <div class="section__heading">
+          <p class="eyebrow">Lens Usage</p>
+          <h2 id="lens-usage-title">我的鏡頭使用佔比</h2>
+        </div>
+        <p class="section__copy">依照片 EXIF 統計每台機身實際用過哪些鏡頭、各佔多少。點上方機身切換。</p>
+        <div class="lens-usage" aria-live="polite">
+          <div class="lens-usage__tabs" id="lens-usage-tabs" aria-label="機身切換"></div>
+          <p class="lens-usage__meta" id="lens-usage-meta"></p>
+          <p class="lens-usage__span" id="lens-usage-span"></p>
+          <div class="stat-chart lens-usage__chart" id="lens-chart" aria-label="所選機身的鏡頭使用佔比玫瑰圖"></div>
         </div>
       </section>
 
@@ -1699,6 +1777,473 @@ window.kardoGearItems = [
   { category: "desktop", categoryLabel: "桌面配置", status: "active", featured: false, brand: "Apple", brandKey: "apple", model: "Magic Keyboard with Touch ID", modelCode: "Magic Keyboard", msrp: 5890, sourceUrl: "https://www.apple.com/tw/shop/mac/accessories", use: "桌面全尺寸鍵盤，用於剪輯快捷鍵、文字工作與長時間輸入。" },
   { category: "desktop", categoryLabel: "桌面配置", status: "active", featured: false, brand: "Apple", brandKey: "apple", model: "Magic Trackpad", modelCode: "Magic Trackpad", msrp: 4170, sourceUrl: "https://www.apple.com/tw/shop/mac/accessories", use: "桌面觸控板，用於修圖、瀏覽與 macOS 手勢操作。" },
 ];
+
+</script>
+    <script>
+// 自動產生(build-lens-usage.mjs):鏡頭使用佔比,來源 camera_lens_stats / EXIF。
+window.LENS_USAGE = {
+  "order": [
+    "all",
+    "a1m2",
+    "a7v",
+    "a7iv",
+    "a7rv",
+    "a7cr",
+    "a7c2",
+    "a7r3"
+  ],
+  "labels": {
+    "all": "所有鏡頭",
+    "a1m2": "α1 II",
+    "a7v": "α7 V",
+    "a7iv": "α7 IV",
+    "a7rv": "α7R V",
+    "a7cr": "α7CR",
+    "a7c2": "α7C II",
+    "a7r3": "α7R III"
+  },
+  "bodies": {
+    "a1m2": {
+      "label": "α1 II",
+      "total": 92,
+      "tailLenses": 0,
+      "tailCount": 0,
+      "lenses": [
+        {
+          "lens": "FE 28-70mm F2.0 GM",
+          "count": 61,
+          "pct": 66.3
+        },
+        {
+          "lens": "FE 24-70mm F2.8 GM II",
+          "count": 21,
+          "pct": 22.8
+        },
+        {
+          "lens": "FE 14mm F1.8 GM",
+          "count": 5,
+          "pct": 5.4
+        },
+        {
+          "lens": "FE 70-200mm F2.8 GM II",
+          "count": 4,
+          "pct": 4.3
+        },
+        {
+          "lens": "FE 16mm F1.8 G",
+          "count": 1,
+          "pct": 1.1
+        }
+      ],
+      "span": {
+        "first": "2026-01-11",
+        "last": "2026-04-20",
+        "days": 100
+      }
+    },
+    "a7v": {
+      "label": "α7 V",
+      "total": 407,
+      "tailLenses": 0,
+      "tailCount": 0,
+      "lenses": [
+        {
+          "lens": "FE 70-200mm F2.8 GM II",
+          "count": 187,
+          "pct": 45.9
+        },
+        {
+          "lens": "FE 20-70mm F4.0 G",
+          "count": 103,
+          "pct": 25.3
+        },
+        {
+          "lens": "FE 14mm F1.8 GM",
+          "count": 48,
+          "pct": 11.8
+        },
+        {
+          "lens": "FE 200-600mm G",
+          "count": 31,
+          "pct": 7.6
+        },
+        {
+          "lens": "FE 70-200mm F4 G II",
+          "count": 18,
+          "pct": 4.4
+        },
+        {
+          "lens": "FE 24-70mm F2.8 GM II",
+          "count": 16,
+          "pct": 3.9
+        },
+        {
+          "lens": "FE 16-35mm F2.8 GM II",
+          "count": 4,
+          "pct": 1
+        }
+      ],
+      "span": {
+        "first": "2026-02-10",
+        "last": "2026-05-10",
+        "days": 90
+      }
+    },
+    "a7iv": {
+      "label": "α7 IV",
+      "total": 8507,
+      "tailLenses": 15,
+      "tailCount": 922,
+      "lenses": [
+        {
+          "lens": "FE 24-70mm F2.8 GM II",
+          "count": 2344,
+          "pct": 27.6
+        },
+        {
+          "lens": "FE 70-200mm F2.8 GM II",
+          "count": 1422,
+          "pct": 16.7
+        },
+        {
+          "lens": "FE 50mm F1.2 GM",
+          "count": 1196,
+          "pct": 14.1
+        },
+        {
+          "lens": "FE PZ 16-35mm F4 G",
+          "count": 678,
+          "pct": 8
+        },
+        {
+          "lens": "FE 20-70mm F4.0 G",
+          "count": 560,
+          "pct": 6.6
+        },
+        {
+          "lens": "FE 35mm F1.4 GM",
+          "count": 444,
+          "pct": 5.2
+        },
+        {
+          "lens": "Tamron 50-400mm A067",
+          "count": 341,
+          "pct": 4
+        },
+        {
+          "lens": "ZEISS Batis 85",
+          "count": 334,
+          "pct": 3.9
+        },
+        {
+          "lens": "FE 50mm F1.4 GM",
+          "count": 266,
+          "pct": 3.1
+        }
+      ],
+      "span": {
+        "first": "2022-03-26",
+        "last": "2026-03-03",
+        "days": 1439
+      }
+    },
+    "a7rv": {
+      "label": "α7R V",
+      "total": 5825,
+      "tailLenses": 12,
+      "tailCount": 471,
+      "lenses": [
+        {
+          "lens": "FE 24-70mm F2.8 GM II",
+          "count": 1568,
+          "pct": 26.9
+        },
+        {
+          "lens": "FE 70-200mm F2.8 GM II",
+          "count": 1275,
+          "pct": 21.9
+        },
+        {
+          "lens": "FE 16-35mm F2.8 GM II",
+          "count": 1035,
+          "pct": 17.8
+        },
+        {
+          "lens": "FE 20-70mm F4.0 G",
+          "count": 363,
+          "pct": 6.2
+        },
+        {
+          "lens": "FE 50mm F1.4 GM",
+          "count": 350,
+          "pct": 6
+        },
+        {
+          "lens": "FE 14mm F1.8 GM",
+          "count": 265,
+          "pct": 4.5
+        },
+        {
+          "lens": "Tamron 70-180mm G2",
+          "count": 211,
+          "pct": 3.6
+        },
+        {
+          "lens": "FE 70-200mm F4 G II",
+          "count": 145,
+          "pct": 2.5
+        },
+        {
+          "lens": "FE 85mm F1.4 GM II",
+          "count": 142,
+          "pct": 2.4
+        }
+      ],
+      "span": {
+        "first": "2023-03-24",
+        "last": "2026-07-07",
+        "days": 1202
+      }
+    },
+    "a7cr": {
+      "label": "α7CR",
+      "total": 1134,
+      "tailLenses": 0,
+      "tailCount": 0,
+      "lenses": [
+        {
+          "lens": "FE 20-70mm F4.0 G",
+          "count": 787,
+          "pct": 69.4
+        },
+        {
+          "lens": "FE 70-200mm F2.8 GM II",
+          "count": 159,
+          "pct": 14
+        },
+        {
+          "lens": "FE 85mm F1.4 GM II",
+          "count": 83,
+          "pct": 7.3
+        },
+        {
+          "lens": "FE 14mm F1.8 GM",
+          "count": 72,
+          "pct": 6.3
+        },
+        {
+          "lens": "FE 16-35mm F2.8 GM II",
+          "count": 26,
+          "pct": 2.3
+        },
+        {
+          "lens": "FE 24-70mm F2.8 GM II",
+          "count": 5,
+          "pct": 0.4
+        },
+        {
+          "lens": "FE 200-600mm G",
+          "count": 2,
+          "pct": 0.2
+        }
+      ],
+      "span": {
+        "first": "2023-05-26",
+        "last": "2026-04-12",
+        "days": 1053
+      }
+    },
+    "a7c2": {
+      "label": "α7C II",
+      "total": 2240,
+      "tailLenses": 13,
+      "tailCount": 240,
+      "lenses": [
+        {
+          "lens": "FE 24-70mm F2.8 GM II",
+          "count": 589,
+          "pct": 26.3
+        },
+        {
+          "lens": "FE 20-70mm F4.0 G",
+          "count": 556,
+          "pct": 24.8
+        },
+        {
+          "lens": "SIGMA 20-200mm",
+          "count": 162,
+          "pct": 7.2
+        },
+        {
+          "lens": "FE 35mm F1.4 GM",
+          "count": 154,
+          "pct": 6.9
+        },
+        {
+          "lens": "FE 40mm F2.5 G",
+          "count": 142,
+          "pct": 6.3
+        },
+        {
+          "lens": "Tamron 70-180mm G2",
+          "count": 114,
+          "pct": 5.1
+        },
+        {
+          "lens": "FE 14mm F1.8 GM",
+          "count": 103,
+          "pct": 4.6
+        },
+        {
+          "lens": "FE 16-35mm F2.8 GM II",
+          "count": 95,
+          "pct": 4.2
+        },
+        {
+          "lens": "FE 50mm F1.4 GM",
+          "count": 85,
+          "pct": 3.8
+        }
+      ],
+      "span": {
+        "first": "2023-11-23",
+        "last": "2026-04-25",
+        "days": 885
+      }
+    },
+    "a7r3": {
+      "label": "α7R III",
+      "total": 4248,
+      "tailLenses": 13,
+      "tailCount": 713,
+      "lenses": [
+        {
+          "lens": "FE 16-35mm F2.8 GM",
+          "count": 994,
+          "pct": 23.4
+        },
+        {
+          "lens": "Tamron 70-180mm A056",
+          "count": 812,
+          "pct": 19.1
+        },
+        {
+          "lens": "ZEISS Batis 40",
+          "count": 497,
+          "pct": 11.7
+        },
+        {
+          "lens": "SIGMA 85mm F1.4",
+          "count": 330,
+          "pct": 7.8
+        },
+        {
+          "lens": "ZEISS Batis 85",
+          "count": 324,
+          "pct": 7.6
+        },
+        {
+          "lens": "Tamron 35mm F053",
+          "count": 155,
+          "pct": 3.6
+        },
+        {
+          "lens": "Tamron 28-200mm A071",
+          "count": 152,
+          "pct": 3.6
+        },
+        {
+          "lens": "ZEISS Loxia 21",
+          "count": 140,
+          "pct": 3.3
+        },
+        {
+          "lens": "Tamron 70-300mm A047",
+          "count": 131,
+          "pct": 3.1
+        }
+      ],
+      "span": {
+        "first": "2018-11-08",
+        "last": "2022-08-14",
+        "days": 1376
+      }
+    },
+    "all": {
+      "label": "所有鏡頭",
+      "total": 22453,
+      "tailLenses": 40,
+      "tailCount": 4767,
+      "lenses": [
+        {
+          "lens": "FE 24-70mm F2.8 GM II",
+          "count": 4543,
+          "pct": 20.2
+        },
+        {
+          "lens": "FE 70-200mm F2.8 GM II",
+          "count": 3075,
+          "pct": 13.7
+        },
+        {
+          "lens": "FE 20-70mm F4.0 G",
+          "count": 2369,
+          "pct": 10.6
+        },
+        {
+          "lens": "FE 50mm F1.2 GM",
+          "count": 1196,
+          "pct": 5.3
+        },
+        {
+          "lens": "FE 16-35mm F2.8 GM II",
+          "count": 1162,
+          "pct": 5.2
+        },
+        {
+          "lens": "FE 16-35mm F2.8 GM",
+          "count": 994,
+          "pct": 4.4
+        },
+        {
+          "lens": "Tamron 70-180mm A056",
+          "count": 830,
+          "pct": 3.7
+        },
+        {
+          "lens": "FE 14mm F1.8 GM",
+          "count": 753,
+          "pct": 3.4
+        },
+        {
+          "lens": "FE 35mm F1.4 GM",
+          "count": 708,
+          "pct": 3.2
+        },
+        {
+          "lens": "FE 50mm F1.4 GM",
+          "count": 701,
+          "pct": 3.1
+        },
+        {
+          "lens": "FE PZ 16-35mm F4 G",
+          "count": 693,
+          "pct": 3.1
+        },
+        {
+          "lens": "ZEISS Batis 85",
+          "count": 662,
+          "pct": 2.9
+        }
+      ],
+      "span": {
+        "first": "2018-11-08",
+        "last": "2026-07-07",
+        "days": 2799
+      }
+    }
+  }
+};
 
 </script>
     <script>
@@ -2066,6 +2611,102 @@ if (statChart) {
     }
   });
 }
+
+// ---- 鏡頭使用佔比玫瑰圖 ----
+(() => {
+  const data = window.LENS_USAGE;
+  const tabs = document.getElementById("lens-usage-tabs");
+  const chart = document.getElementById("lens-chart");
+  const meta = document.getElementById("lens-usage-meta");
+  const spanEl = document.getElementById("lens-usage-span");
+  if (!data || !tabs || !chart) return;
+
+  const esc = (value) =>
+    String(value).replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+
+  const buildLensRose = (items) => {
+    const W = 1040, H = 470, cx = 520, cy = 235, innerR = 12, maxR = 150, labelR = maxR + 34, pad = 1.1;
+    const n = items.length;
+    const step = 360 / n;
+    const palette = rampColors(n);
+    const maxV = items.reduce((m, x) => Math.max(m, x.count), 0) || 1;
+    const polar = (r, deg) => {
+      const rad = (deg * Math.PI) / 180;
+      return { x: cx + r * Math.sin(rad), y: cy - r * Math.cos(rad) };
+    };
+    const slices = items.map((row, i) => {
+      const r = innerR + (maxR - innerR) * Math.sqrt(row.count / maxV);
+      return { row, color: palette[i], a0: i * step, a1: (i + 1) * step, mid: (i + 0.5) * step, r };
+    });
+
+    const petals = slices.map((s) => {
+      const a0 = s.a0 + pad, a1 = s.a1 - pad;
+      const o0 = polar(s.r, a0), o1 = polar(s.r, a1), i0 = polar(innerR, a1), i1 = polar(innerR, a0);
+      const d = [
+        `M ${o0.x.toFixed(2)} ${o0.y.toFixed(2)}`,
+        `A ${s.r.toFixed(2)} ${s.r.toFixed(2)} 0 0 1 ${o1.x.toFixed(2)} ${o1.y.toFixed(2)}`,
+        `L ${i0.x.toFixed(2)} ${i0.y.toFixed(2)}`,
+        `A ${innerR} ${innerR} 0 0 0 ${i1.x.toFixed(2)} ${i1.y.toFixed(2)}`,
+        "Z"
+      ].join(" ");
+      return `<path class="slice" d="${d}" fill="${s.color}" stroke="#ffffff" stroke-width="1.5"><title>${esc(s.row.lens)}　${s.row.count} 張（${s.row.pct}%）</title></path>`;
+    }).join("");
+
+    const labels = slices.map((s) => {
+      const sinM = Math.sin((s.mid * Math.PI) / 180);
+      const cosM = Math.cos((s.mid * Math.PI) / 180);
+      const tip = polar(s.r, s.mid);
+      const knee = polar(labelR, s.mid);
+      const anchor = sinM > 0.12 ? "start" : sinM < -0.12 ? "end" : "middle";
+      const textX = knee.x + (anchor === "start" ? 6 : anchor === "end" ? -6 : 0);
+      let nameY = knee.y - 3;
+      let pctY = knee.y + 14;
+      if (cosM > 0.35) { nameY = knee.y - 8; pctY = knee.y + 9; }
+      else if (cosM < -0.35) { nameY = knee.y + 6; pctY = knee.y + 23; }
+      const leader = `${tip.x.toFixed(2)},${tip.y.toFixed(2)} ${knee.x.toFixed(2)},${knee.y.toFixed(2)}`;
+      return `<polyline class="leader" points="${leader}"></polyline>` +
+        `<text text-anchor="${anchor}">` +
+        `<tspan class="label-name" x="${textX.toFixed(2)}" y="${nameY.toFixed(2)}">${esc(s.row.lens)}</tspan>` +
+        `<tspan class="label-pct" x="${textX.toFixed(2)}" y="${pctY.toFixed(2)}">${s.row.pct}%</tspan>` +
+        `</text>`;
+    }).join("");
+
+    return `<svg viewBox="0 0 ${W} ${H}" role="img" xmlns="http://www.w3.org/2000/svg">${petals}${labels}</svg>`;
+  };
+
+  const render = (key) => {
+    const body = data.bodies[key];
+    if (!body) return;
+    chart.innerHTML = buildLensRose(body.lenses);
+    if (meta) {
+      const head = (key === "all" ? "所有可換鏡機身合計 " : `${body.label} 使用 `) +
+        `${body.total.toLocaleString()} 張`;
+      const tail = body.tailLenses > 0
+        ? ` · 圖示前 ${body.lenses.length} 大鏡頭,另 ${body.tailLenses} 顆未列`
+        : ` · 共 ${body.lenses.length} 顆鏡頭`;
+      meta.textContent = head + tail;
+    }
+    if (spanEl) {
+      spanEl.innerHTML = body.span
+        ? `使用時間跨度　${body.span.first} ～ ${body.span.last}　<b>${body.span.days.toLocaleString()} 天</b>`
+        : "";
+    }
+    tabs.querySelectorAll(".filter-button").forEach((btn) =>
+      btn.classList.toggle("is-active", btn.dataset.body === key));
+  };
+
+  data.order.forEach((key) => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "filter-button";
+    btn.dataset.body = key;
+    btn.textContent = data.labels[key] || key;
+    btn.addEventListener("click", () => render(key));
+    tabs.appendChild(btn);
+  });
+
+  render(data.order[0] || "all");
+})();
 
 </script>
   </body>
