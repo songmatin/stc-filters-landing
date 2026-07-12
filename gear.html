@@ -1478,6 +1478,7 @@ h3 {
 .lens-usage__tabs {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 8px;
   margin-bottom: 12px;
 }
@@ -1510,7 +1511,7 @@ h3 {
 }
 
 .lens-usage__legend {
-  display: flex;
+  display: none;
   flex-wrap: wrap;
   justify-content: center;
   gap: 8px 16px;
@@ -1536,6 +1537,20 @@ h3 {
   height: 12px;
   border-radius: 3px;
   flex: none;
+}
+
+/* 手機:改用緊湊玫瑰圖(JS 已移除引線標籤)+ 下方圖例 */
+@media (max-width: 640px) {
+  .lens-usage__chart svg {
+    max-width: 360px;
+  }
+  .lens-usage__chart .rose-labels {
+    display: none;
+  }
+  .lens-usage__legend {
+    display: flex;
+    max-width: 440px;
+  }
 }
 
 </style>
@@ -1638,12 +1653,13 @@ h3 {
           <p class="eyebrow">Lens Usage</p>
           <h2 id="lens-usage-title">我的鏡頭使用佔比</h2>
         </div>
-        <p class="section__copy">依照片 EXIF 統計每台機身實際用過哪些鏡頭、各佔多少。點上方機身切換。</p>
+        <p class="section__copy">依照片 EXIF 統計每台機身實際用過哪些鏡頭、各佔多少。</p>
         <div class="lens-usage" aria-live="polite">
           <div class="lens-usage__tabs" id="lens-usage-tabs" aria-label="機身切換"></div>
           <p class="lens-usage__meta" id="lens-usage-meta"></p>
           <p class="lens-usage__span" id="lens-usage-span"></p>
           <div class="stat-chart lens-usage__chart" id="lens-chart" aria-label="所選機身的鏡頭使用佔比玫瑰圖"></div>
+          <div class="lens-usage__legend" id="lens-legend" aria-hidden="true"></div>
         </div>
       </section>
 
@@ -2619,13 +2635,21 @@ if (statChart) {
   const chart = document.getElementById("lens-chart");
   const meta = document.getElementById("lens-usage-meta");
   const spanEl = document.getElementById("lens-usage-span");
+  const legend = document.getElementById("lens-legend");
   if (!data || !tabs || !chart) return;
 
   const esc = (value) =>
     String(value).replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
 
-  const buildLensRose = (items) => {
-    const W = 1040, H = 470, cx = 520, cy = 235, innerR = 12, maxR = 150, labelR = maxR + 34, pad = 1.1;
+  const buildLensRose = (items, compact) => {
+    const W = compact ? 400 : 1040;
+    const H = compact ? 400 : 470;
+    const cx = compact ? 200 : 520;
+    const cy = compact ? 200 : 235;
+    const innerR = compact ? 10 : 12;
+    const maxR = compact ? 168 : 150;
+    const labelR = maxR + 34;
+    const pad = 1.1;
     const n = items.length;
     const step = 360 / n;
     const palette = rampColors(n);
@@ -2652,7 +2676,7 @@ if (statChart) {
       return `<path class="slice" d="${d}" fill="${s.color}" stroke="#ffffff" stroke-width="1.5"><title>${esc(s.row.lens)}　${s.row.count} 張（${s.row.pct}%）</title></path>`;
     }).join("");
 
-    const labels = slices.map((s) => {
+    const labels = compact ? "" : slices.map((s) => {
       const sinM = Math.sin((s.mid * Math.PI) / 180);
       const cosM = Math.cos((s.mid * Math.PI) / 180);
       const tip = polar(s.r, s.mid);
@@ -2671,13 +2695,25 @@ if (statChart) {
         `</text>`;
     }).join("");
 
-    return `<svg viewBox="0 0 ${W} ${H}" role="img" xmlns="http://www.w3.org/2000/svg">${petals}${labels}</svg>`;
+    return `<svg viewBox="0 0 ${W} ${H}" role="img" xmlns="http://www.w3.org/2000/svg">${petals}${compact ? "" : `<g class="rose-labels">${labels}</g>`}</svg>`;
   };
+
+  const buildLegend = (items) => {
+    const palette = rampColors(items.length);
+    return items.map((x, i) =>
+      `<span class="lens-legend__item"><span class="lens-legend__swatch" style="background:${palette[i]}"></span>${esc(x.lens)} <b>${x.pct}%</b></span>`
+    ).join("");
+  };
+
+  const mq = window.matchMedia("(max-width: 640px)");
+  let currentKey = data.order[0] || "all";
 
   const render = (key) => {
     const body = data.bodies[key];
     if (!body) return;
-    chart.innerHTML = buildLensRose(body.lenses);
+    currentKey = key;
+    chart.innerHTML = buildLensRose(body.lenses, mq.matches);
+    if (legend) legend.innerHTML = buildLegend(body.lenses);
     if (meta) {
       const head = (key === "all" ? "所有可換鏡機身合計 " : `${body.label} 使用 `) +
         `${body.total.toLocaleString()} 張`;
@@ -2705,7 +2741,8 @@ if (statChart) {
     tabs.appendChild(btn);
   });
 
-  render(data.order[0] || "all");
+  render(currentKey);
+  mq.addEventListener("change", () => render(currentKey));
 })();
 
 </script>
