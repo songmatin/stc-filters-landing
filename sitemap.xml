@@ -2,10 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://filters.songmatin.com/</loc>
-    <lastmod>2026-06-18</lastmod>
+    <lastmod>2026-10-22</lastmod>
   </url>
   <url>
     <loc>https://filters.songmatin.com/gear</loc>
     <lastmod>2026-06-18</lastmod>
+  </url>
+  <url>
+    <loc>https://filters.songmatin.com/stc-discount/</loc>
+    <lastmod>2026-10-22</lastmod>
+  </url>
+  <url>
+    <loc>https://filters.songmatin.com/nd-cpl-black-mist-guide/</loc>
+    <lastmod>2026-10-22</lastmod>
+  </url>
+  <url>
+    <loc>https://filters.songmatin.com/first-filter-guide/</loc>
+    <lastmod>2026-10-22</lastmod>
   </url>
 </urlset>
