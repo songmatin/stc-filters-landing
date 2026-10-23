@@ -8,6 +8,16 @@
       content="里卡豆使用的攝影器材與 3C 產品清單，整理空拍、攝影、剪輯與移動工作流程中的核心工具。"
     >
     <title>里卡豆器材清單｜攝影器材與 3C 工作設備</title>
+    <link rel="canonical" href="https://filters.songmatin.com/gear.html">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GJKS8VHB09"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function () {
+        window.dataLayer.push(arguments);
+      };
+      window.gtag("js", new Date());
+      window.gtag("config", "G-GJKS8VHB09");
+    </script>
     <style>
 :root {
   color-scheme: light;
@@ -277,6 +287,23 @@ h3 {
 
 .site-footer p {
   margin: 0;
+}
+
+.creator-identity {
+  margin: 12px 0;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.creator-identity a {
+  display: inline-block;
+  padding: 8px 0;
+}
+
+.gear-breadcrumb {
+  padding: 12px 24px;
+  font-size: 14px;
+  line-height: 1.8;
 }
 
 .gear-hero {
@@ -1681,6 +1708,11 @@ h3 {
     </header>
 
     <main>
+      <nav class="gear-breadcrumb" aria-label="麵包屑">
+        <a href="https://filters.songmatin.com/">STC 濾鏡介紹</a>
+        <span aria-hidden="true">／</span>
+        <span aria-current="page">里卡豆的攝影器材清單</span>
+      </nav>
       <section class="gear-hero" aria-labelledby="gear-title">
         <div class="gear-hero__media" aria-hidden="true"></div>
         <div class="gear-hero__content">
@@ -1787,6 +1819,16 @@ h3 {
 
     <footer class="site-footer">
       <p>©2026 里卡豆攝影清單 ＠songmatin</p>
+      <section class="creator-identity" aria-label="創作者與品牌">
+        <p>里卡豆（Ricardo、songmatin）｜攝影師</p>
+        <p>空拍攝影師、空間建築攝影師、旅遊攝影師。</p>
+        <p>仟隅視覺有限公司創辦人；自由過頭影像事務所為旗下子品牌。</p>
+        <a href="https://songmatin.com/info/" rel="noopener" target="_blank">聯絡里卡豆</a>
+      </section>
+      <nav aria-label="作品集與濾鏡">
+        <a href="https://www.behance.net/songmatin?utm_source=filters.songmatin.com&amp;utm_medium=referral&amp;utm_campaign=portfolio" rel="noopener" target="_blank" data-behance-position="footer">作品集：Behance</a>
+        <a href="https://filters.songmatin.com/">STC 濾鏡介紹</a>
+      </nav>
     </footer>
 
     <script>
@@ -15479,5 +15521,18 @@ if (statChart) {
 })();
 
 </script>
+    <script>
+      document.querySelectorAll("a[data-behance-position]").forEach((link) => {
+        link.addEventListener("click", () => {
+          if (typeof window.gtag !== "function") return;
+          window.gtag("event", "click_behance", {
+            page: "gear",
+            page_path: window.location.pathname,
+            position: link.dataset.behancePosition,
+            link_url: link.href
+          });
+        });
+      });
+    </script>
   </body>
 </html>

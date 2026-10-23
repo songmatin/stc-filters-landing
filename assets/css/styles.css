@@ -224,6 +224,17 @@ h3 {
   margin: 0;
 }
 
+.creator-identity {
+  margin: 12px 0;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.creator-identity a {
+  display: inline-block;
+  padding: 8px 0;
+}
+
 .gear-hero {
   position: relative;
   min-height: 72vh;
