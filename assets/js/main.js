@@ -21,6 +21,15 @@ function trackEvent(name, parameters = {}) {
   }
 }
 
+document.querySelectorAll("a[data-behance-position]").forEach((link) => {
+  link.addEventListener("click", () => {
+    trackEvent("click_behance", {
+      position: link.dataset.behancePosition,
+      link_url: link.href,
+    });
+  });
+});
+
 document.querySelectorAll('a[href*="stcoptics.com"]').forEach((link) => {
   const url = new URL(link.href);
   if (!url.searchParams.has("utm_source")) {
