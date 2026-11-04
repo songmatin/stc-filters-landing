@@ -21,15 +21,15 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
+        "@graph": [{
         "@type": "WebPage",
+        "@id": "https://filters.songmatin.com/",
         "name": "STC 濾鏡作品頁｜里卡豆 Ricardo",
         "url": "https://filters.songmatin.com/",
         "description": "里卡豆以實拍作品整理 STC 濾鏡在風景、建築、旅行與夜景中的使用方向，包含 CPL 偏光鏡、UV 保護鏡、鏡頭保護鏡、Cine Mist 黑柔霧內置型濾鏡與 MagVario 磁吸濾鏡套組。",
         "inLanguage": "zh-Hant-TW",
         "creator": {
-          "@type": "Person",
-          "name": "里卡豆 Ricardo",
-          "url": "https://www.songmatin.com/"
+          "@id": "https://songmatin.com/#/schema/person/12d2bc20be49942ad8ad49fab7090b86"
         },
         "about": [
           "STC 濾鏡",
@@ -40,6 +40,30 @@
           "MagVario 磁吸濾鏡"
         ],
         "keywords": "STC 濾鏡, CPL 偏光鏡, UV 保護鏡, 鏡頭保護鏡, AURA UV FILTER, PURE Hybrid CPL, Cine Mist, MagVario"
+        }, {
+          "@type": "Person",
+          "@id": "https://songmatin.com/#/schema/person/12d2bc20be49942ad8ad49fab7090b86",
+          "name": "里卡豆",
+          "alternateName": ["Ricardo", "songmatin"],
+          "url": "https://songmatin.com/post/author/qianyuvisualgmail-com/",
+          "jobTitle": "攝影師",
+          "description": "空拍攝影師、空間建築攝影師、旅遊攝影師",
+          "worksFor": {"@id": "https://songmatin.com/#organization"},
+          "sameAs": [
+            "https://www.behance.net/songmatin",
+            "https://www.instagram.com/songmatin",
+            "https://www.facebook.com/kardostudio",
+            "https://www.youtube.com/channel/UC56BoXrXacavJNXb-asoDWw",
+            "https://www.flickr.com/photos/songmatin/"
+          ]
+        }, {
+          "@type": ["Organization", "ProfessionalService"],
+          "@id": "https://songmatin.com/#organization",
+          "name": "仟隅視覺有限公司",
+          "url": "https://songmatin.com/",
+          "founder": {"@id": "https://songmatin.com/#/schema/person/12d2bc20be49942ad8ad49fab7090b86"},
+          "brand": {"@type": "Brand", "name": "自由過頭影像事務所"}
+        }]
       }
     </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-GJKS8VHB09"></script>
@@ -330,6 +354,8 @@
       </section>
       <nav aria-label="作品集與器材">
         <a href="https://www.behance.net/songmatin?utm_source=filters.songmatin.com&amp;utm_medium=referral&amp;utm_campaign=portfolio" rel="noopener" target="_blank" data-behance-position="footer">作品集：Behance</a>
+        <a href="https://www.youtube.com/channel/UC56BoXrXacavJNXb-asoDWw" rel="noopener" target="_blank">YouTube</a>
+        <a href="https://www.flickr.com/photos/songmatin/" rel="noopener" target="_blank">Flickr</a>
         <a href="gear.html">里卡豆的攝影器材清單</a>
       </nav>
     </footer>
