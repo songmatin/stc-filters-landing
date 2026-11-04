@@ -644,6 +644,9 @@ h3 {
 }
 
 .filter-guide-links {
+  --filter-ink: #18201f;
+  --filter-subtle: #5d6864;
+  --filter-line: rgba(24, 32, 31, 0.2);
   display: grid;
   grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.3fr);
   gap: 28px;
@@ -653,9 +656,17 @@ h3 {
   color: var(--filter-ink);
 }
 
+.filter-guide-links .filter-kicker {
+  color: var(--filter-subtle);
+  font-family: var(--filter-latin);
+}
+
 .filter-guide-links h2 {
   margin: 0;
+  color: var(--filter-ink);
+  font-family: var(--filter-zh);
   font-size: clamp(26px, 4vw, 42px);
+  font-weight: 500;
 }
 
 .filter-guide-links__grid {
@@ -669,8 +680,9 @@ h3 {
   display: flex;
   align-items: center;
   padding: 18px;
-  border: 1px solid rgba(24, 32, 31, 0.2);
+  border: 1px solid var(--filter-line);
   color: var(--filter-ink);
+  font-family: var(--filter-zh);
   font-weight: 700;
   text-decoration: none;
 }
