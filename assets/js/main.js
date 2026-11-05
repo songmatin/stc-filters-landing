@@ -10,6 +10,7 @@ const filterButtons = document.querySelectorAll("[data-filter]");
 const gearCards = document.querySelectorAll(".gear-card[data-category]");
 
 const pageKey = document.body.dataset.pageKey || "home";
+const discountCode = "KARDO";
 
 function trackEvent(name, parameters = {}) {
   if (typeof window.gtag === "function") {
@@ -31,7 +32,14 @@ document.querySelectorAll("a[data-behance-position]").forEach((link) => {
 });
 
 document.querySelectorAll('a[href*="stcoptics.com"]').forEach((link) => {
-  const url = new URL(link.href);
+  const currentUrl = new URL(link.href);
+  const url = currentUrl.pathname.startsWith(`/discount/${discountCode}`)
+    ? currentUrl
+    : (() => {
+        const discountUrl = new URL(`https://${currentUrl.hostname}/discount/${discountCode}`);
+        discountUrl.searchParams.set("redirect", `${currentUrl.pathname}${currentUrl.search}`);
+        return discountUrl;
+      })();
   if (!url.searchParams.has("utm_source")) {
     url.searchParams.set("utm_source", "filters.songmatin.com");
     url.searchParams.set("utm_medium", "referral");
